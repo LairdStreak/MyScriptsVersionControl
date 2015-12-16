@@ -15,6 +15,7 @@ GROUP BY
 )
 
 SELECT 
+    SchemaName = (Select name from sys.schemas Where schema_id = t.schema_id),
     t.NAME AS TableName,
     fs.RowCounts,
     fs.TotalSpaceKb,
@@ -33,3 +34,5 @@ WHERE
     AND t.is_ms_shipped = 0
 ORDER BY 
     fs.TotalSpaceKb DESC
+
+	--Select * from sys.schemas
