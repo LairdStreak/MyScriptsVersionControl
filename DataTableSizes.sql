@@ -21,6 +21,7 @@ SELECT
     fs.TotalSpaceKb,
 	fs.TotalSpaceKb / 1024 as SpaceMB,
 	(fs.TotalSpaceKb / 1024) / 1024 as SpaceGB,
+	fs.TotalSpaceKb / (CASE WHEN fs.RowCounts <= 0 THEN 1 ELSE fs.RowCounts END) as kbPerRow,
     t.create_date,
     t.modify_date,
     ( select COUNT(1)
@@ -33,6 +34,5 @@ WHERE
     t.NAME NOT LIKE 'dt%' 
     AND t.is_ms_shipped = 0
 ORDER BY 
-    fs.TotalSpaceKb DESC
+  fs.TotalSpaceKb DESC
 
-	--Select * from sys.schemas
