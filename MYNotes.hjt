@@ -1,0 +1,2548 @@
+<Treepad version 3.0>
+dt=Text
+<node>
+Notes
+0
+<end node> 5P9i0s8y19Z
+dt=Text
+<node>
+Code
+1
+<end node> 5P9i0s8y19Z
+dt=Text
+<node>
+ASP.Net Notes
+2
+<%@ Page Language="VB" %>
+<%@ Assembly Name="Eaton_CorporateWide.ExtensionsAndUtils" %>
+<%@ Import namespace="Eaton_CorporateWide.ExtensionsAndUtils.Session.Utils" %>
+<%@ Import Namespace="System.Web" %>
+
+<end node> 5P9i0s8y19Z
+dt=Text
+<node>
+How to Local Email Testing
+3
+<system.net>
+    <defaultProxy enabled="true" />
+    <settings>
+      <!-- This setting causes .NET to check certificate revocation lists (CRL) 
+           before trusting HTTPS certificates.  But this setting tends to not 
+           be allowed in shared hosting environments. -->
+      <!--<servicePointManager checkCertificateRevocationList="true"/>-->
+    </settings>
+    <mailSettings>
+      <!-- User For LocalHost, on Staging/Live WebServers EatonSettings DB holds SMTP Server Info -->
+      <smtp deliveryMethod="SpecifiedPickupDirectory">
+        <specifiedPickupDirectory pickupDirectoryLocation="C:\1Work\LocalhostEmailStorage" />
+        <network host="localhost" port="56766" defaultCredentials="true" />  // Ensure port matches IIS port in url
+      </smtp>
+    </mailSettings>
+  </system.net>
+
+<end node> 5P9i0s8y19Z
+dt=Text
+<node>
+How to classic asp
+3
+Add the following settings then you can work with .aspx and .asp code.
+ <compilation>
+      <buildProviders>
+        <add extension=".asp" type="System.Web.Compilation.PageBuildProvider"/>
+      </buildProviders>
+    </compilation>
+ <httpHandlers>
+    <add path="*.asp" verb="*" type="System.Web.UI.PageHandlerFactory" validate="true"/>
+ </httpHandlers>
+
+<end node> 5P9i0s8y19Z
+dt=Text
+<node>
+MVC / Razor
+3
+<end node> 5P9i0s8y19Z
+dt=Text
+<node>
+asp-net-mvc3-html-passwordfor-does-not-populate
+4
+http://stackoverflow.com/questions/5642849/asp-net-mvc3-html-passwordfor-does-not-populate
+
+<end node> 5P9i0s8y19Z
+dt=Text
+<node>
+QandA Lots of info
+3
+C# and Asp.Net Question and Answers(All in one)
+By Akhil_Mittal, 14 Dec 2013
+ 
+	    4.89 (40 votes)
+Rate:	
+vote 1vote 2vote 3vote 4vote 5
+ 
+Introduction
+My this article provides a collection of numerous .Net, C#, ADO.NET, Web Services, .Net Framework questions and answers for which a reader has to look around for entire internet on different community web sites. Most of the questions and answers you must have already read. The purpose of this article is to consolidate at the most study material related to .Net at one single place.
+
+ASP.NET 
+What is view state and use of it?The current property settings of an ASP.NET page and those of any ASP.NET server controls contained within the page. ASP.NET can detect when a form is requested for the first time versus when the form is posted (sent to the server), which  allows you to program accordingly.
+
+What are user controls and custom controls?Custom controls:
+ A control authored by a user or a third-party software vendor that does not belong to   the .NET Framework class library. This is a generic term that includes user controls. A  custom server control is used in Web Forms (ASP.NET pages). A custom client control is used  in Windows Forms applications.
+
+User Controls:
+In ASP.NET: A user-authored server control that enables an ASP.NET page to be re-used   as a server control. An ASP.NET user control is authored declaratively  and persisted as a  text file with an .ascx extension. The ASP.NET page framework compiles a user control on  the fly to a class that derives from the        System.Web.UI.UserControl class.
+
+What are the validation controls?A set of server controls included with ASP.NET that test user input in HTML and Web server  controls for programmer-defined requirements. Validation controls perform input checking in server code. If the user is working with a browser that supports DHTML, the validation  controls can also perform validation using client script.
+
+What's the difference between Response.Write() andResponse.Output.Write()?The latter one allows you to write formattedoutput.
+
+What methods are fired during the page load? Init () When the page is instantiated, Load() - when the page is loaded into server  memory,PreRender () - the brief moment before the page is displayed to the user  as HTML, Unload() - when page finishes loading.
+
+Where does the Web page belong in the .NET Framework class hierarchy?System.Web.UI.Page
+
+Where do you store the information about the user's locale?System.Web.UI.Page.Culture
+
+What's the difference between Codebehind="MyCode.aspx.cs" and Src="MyCode.aspx.cs"?CodeBehind is relevant to Visual Studio.NET only.
+
+What's a bubbled event?
+When you have a complex control, like DataGrid, writing an event processing routine for each object (cell, button,row, etc.) is quite tedious. The controls can bubble up their eventhandlers, allowing the main DataGrid event handler to take care of its constituents.
+Suppose you want a certain ASP.NET function executed on MouseOver over a certain button.
+
+Where do you add an event handler?It's the Attributesproperty, the Add function inside that property.            
+e.g. btnSubmit.Attributes.Add("onMouseOver","someClientCode();")
+
+What data type does the RangeValidator control support?Integer,String and Date.
+
+What are the different types of caching?
+Caching is a technique widely used in computing to increase performance by keeping frequently accessed or expensive data in memory. In context of web application, caching is used to retain the pages or data across HTTP requests and reuse them without the expense of recreating them.ASP.NET has 3 kinds of caching strategiesOutput CachingFragment CachingData    
+CachingOutput Caching: Caches the dynamic output generated by a request. Some times it is useful to cache  the output of a website even for a minute, which will result in a better  performance. For caching the whole page the page should have OutputCache directive.<%@ OutputCache Duration="60" VaryByParam="state" %>
+
+Fragment Caching: Caches the portion of the  page generated by the request. Some times it is not practical to cache the entire page, in such cases we can cache a portion of page<%@ OutputCache Duration="120" VaryByParam="CategoryID;SelectedID"%>
+
+Data Caching: Caches the objects programmatically. For     data caching asp.net provides a cache object for eg: cache["States"] = dsStates;
+
+What do you mean by authentication and authorization?Authentication is the process of validating a user on the credentials (username and     password) and authorization performs after authentication. After Authentication a user will     be verified for performing the various tasks, It access is limited it is known as       authorization.
+
+What are different types of directives in .NET?
+@Page: Defines page-specific attributes used by the ASP.NET page parser and compiler. Can       be included only in .aspx files <%@ Page AspCompat="TRUE" language="C#" %>  
+@Control:Defines control-specific attributes used by the ASP.NET page parser and        compiler. Can be included only in .ascx files. <%@ Control Language="VB" EnableViewState="false" %>
+@Import: Explicitly imports a namespace into a page or user control. The Import         directive cannot have more than one namespace attribute. To import multiple     namespaces,     use multiple @Import directives. <% @ Import Namespace="System.web" %>
+@Implements: Indicates that the current page or user control implements the specified .NET      framework interface.<%@ Implements Interface="System.Web.UI.IPostBackEventHandler" %>
+@Register: Associates aliases with namespaces and class names for concise notation in   custom server control syntax.<%@ Register Tagprefix="Acme" Tagname="AdRotator" Src="AdRotator.ascx" %>
+@Assembly: Links an assembly to the current page during compilation, making all         the     assembly's classes and interfaces available for use on the      page. <%@ Assembly Name="MyAssembly" %><%@ Assembly Src="MySource.vb" %>
+@OutputCache: Declaratively controls the output caching policies of an ASP.NET page or a        user control contained in a page<%@ OutputCache Duration="#ofseconds" Location="Any | Client | Downstream | Server | None" Shared="True | False" VaryByControl="controlname" VaryByCustom="browser | customstring" VaryByHeader="headers" VaryByParam="parametername" %>
+@Reference: Declaratively indicates that another user control or page source file               should be dynamically compiled and linked against the page in which this directive is   declared.
+Note: Few of the references are taken from other sites/sources
+
+How do I debug an ASP.NET application that wasn't written with Visual Studio.NET and that doesn't use code-behind?Start the DbgClr debugger that comes with the .NET Framework SDK, open the file containing      the code you want to debug, and set your breakpoints. Start the ASP.NET application. Go back to DbgClr, choose Debug Processes from the Tools menu, and select  aspnet_wp.exe from  the list of processes. (If aspnet_wp.exe doesn't appear in the list,check the "Show system      processes" box.) Click the Attach button to attach to aspnet_wp.exe and begin debugging.
+Be sure to enable debugging in the ASPX file before debugging it with DbgClr. You can   enable tell ASP.NET to build debug executables by placing a
+<%@ Page Debug="true" %>   statement at the top of an ASPX file or a   <COMPILATION debug="true" />statement in a Web.config file.
+ 
+Can a user browsing my Web site read my Web.config or Global.asax files?
+No. The <HTTPHANDLERS>section of Machine.config, which holds the master configuration  settings for ASP.NET, contains entries that map ASAX files, CONFIG files, and selected  other file types to an HTTP handler named HttpForbiddenHandler, which fails attempts to retrieve the associated file. You can modify it by editing  Machine.config or including an section in a local Web.config file.
+
+What's the difference between Page.RegisterClientScriptBlock and Page.RegisterStartupScript?RegisterClientScriptBlock is for returning blocks of client-side script containing functions. RegisterStartupScript is for returning blocks of client-script not   packaged in functions-in other words, code that's to execute when the page is loaded. The latter positions script blocks near the end of the document so elements on the page that the script interacts are loaded before the script runs.<%@ Reference Control="MyControl.ascx" %>Is it necessary to lock application state before accessing it?Only if you're performing a multistep update and want the update to be treated as an atomic     operation. Here's an example:
+ Collapse | Copy Code
+                Application.Lock ();
+                Application["ItemsSold"] = (int) Application["ItemsSold"] + 1;
+                Application["ItemsLeft"] = (int) Application["ItemsLeft"] - 1;
+                Application.UnLock ();
+
+By locking application state before updating it and unlocking it afterwards, you ensure  that another request being processed on another thread doesn't read application state   at exactly the wrong time and see an inconsistent view of it. If I update session state, should I lock it, too? Are concurrent accesses by multiple requests executing on multiple threads a concern with session state?
+Concurrent accesses aren't an issue with session state, for two reasons. One, it's unlikely that two requests from the same user will overlap. Two, if they do overlap, ASP.NET locks down session state during request processing so that two threads can't touch it at once. Session state is locked down when the HttpApplication instance that's processing the request fires an AcquireRequestState event and unlocked when it fires a ReleaseRequestState event.
+Do ASP.NET forms authentication cookies provide any protection against replay attacks? Do they, for example, include the client's IP  address or anything else that would distinguish the real client from an attacker?
+No. If an authentication cookie is stolen, it can be used by an attacker. It's up to you to     prevent this from happening by using an encrypted communications channel (HTTPS). Authentication cookies issued as session cookies, do, however,include a time-out valid that     limits their lifetime. So a stolen session cookie can only be used in replay attacks as long as the ticket inside the cookie is valid. The default time-out interval is 30 minutes.You can change that by modifying the timeout attribute accompanying the <forms> element in Machine.config or a local Web.config file. Persistent authentication cookies do not  time-out and therefore are a more serious security threat if stolen.
+
+How do I send e-mail from an ASP.NET application?
+ Collapse | Copy Code
+        MailMessage message = new MailMessage ();
+        message.From = <email>;
+        message.To = <email>;
+        message.Subject = "Scheduled Power Outage";
+        message.Body = "Our servers will be down tonight.";
+        SmtpMail.SmtpServer = "localhost";
+        SmtpMail.Send (message);
+ MailMessage and SmtpMail are classes defined in the .NET Framework Class Library's  System.Web.Mail namespace. Due to a security change made to ASP.NET just before it shipped,  you need to set SmtpMail's SmtpServer property to "localhost" even though "localhost" is  the default. In addition, you must use the IIS configuration applet to enable localhost  (127.0.0.1) to relay messages through the local SMTP service.
+
+What are VSDISCO files?
+
+VSDISCO files are DISCO files that support dynamic discovery of Web services. If you place the following VSDISCO file in a directory on your Web server, for example, it returns   references to all ASMX and DISCO files in the host directory and any subdirectories not         noted in <exclude> elements:
+ Collapse | Copy Code
+             <?xml version="1.0" ?>
+                <dynamicDiscovery
+                  xmlns="urn:schemas-dynamicdiscovery:disco.2000-03-17">
+                  <exclude path="_vti_cnf" />
+                  <exclude path="_vti_pvt" />
+                  <exclude path="_vti_log" />
+                  <exclude path="_vti_script" />
+                  <exclude path="_vti_txt" />
+                </dynamicDiscovery>
+How does dynamic discovery work?
+ASP.NET maps the file name extension VSDISCO to an HTTP handler that scans the host  directory and subdirectories for ASMX and DISCO files and returns a dynamically generated DISCO document. A client who requests a VSDISCO file gets back what appears to be a static DISCO document.
+Note that VSDISCO files are disabled in the release version of ASP.NET. You can reenable them by uncommenting the line   in the <httpHandlers> section of Machine.config that maps *.vsdisco to System.Web.Services.Discovery.DiscoveryRequestHandler and granting the ASPNET  user account permission to read the IIS metabase. However, Microsoft is actively discouraging the use of VSDISCO files because they could represent a threat to Web server security.
+ 
+Is it possible to prevent a browser from caching an ASPX page?
+Just call SetNoStore on the HttpCachePolicy object exposed through the Response object's Cache property, as demonstrated here:
+ Collapse | Copy Code
+        <%@ Page Language="C#" %>
+        <html>
+          <body>
+            <%
+              Response.Cache.SetNoStore ();
+              Response.Write (DateTime.Now.ToLongTimeString ());
+            %>
+          </body>
+        </html>
+SetNoStore works by returning a Cache-Control: private, no-store header in the HTTP response. In this example, it prevents caching of a Web page that shows the current time.
+
+What does AspCompat="true" mean and when should I use it?
+AspCompat is an aid in migrating ASP pages to ASPX pages. It defaults to false but should be set to true in any ASPX file that creates apartment-threaded COM objects--that is, COM objects registered ThreadingModel=Apartment. That includes all COM objects written with  Visual Basic 6.0. AspCompat should also be set to true (regardless of threading  model)  if the page creates COM objects that access intrinsic ASP objects such as Request and Response. The following directive sets AspCompat to true:
+
+ Collapse | Copy Code
+<%@ Page AspCompat="true" %> 
+Setting AspCompat to true does two things. First, it makes intrinsic ASP objects available      to the COM components by placing unmanaged wrappers around the equivalent ASP.NET objects. Second, it improves the performance of calls that the page places to apartment- threaded COM objects by ensuring that the page (actually, the thread that processes the  request for the page) and the COM objects it creates share an apartment. AspCompat="true" forces ASP.NET request threads into single-threaded apartments (STAs). If those threads create COM objects marked ThreadingModel=Apartment, then the objects are created in the same STAs as the threads that created them. Without AspCompat="true," request threads run in a multithreaded apartment (MTA) and each call to an STA-based COM object incurs a performance hit when it's  marshaled across apartment boundaries.
+
+Do not set AspCompat to true if your page uses no COM objects or if it uses COM objects that don't access ASP intrinsic objects and that are registered ThreadingModel=Free or  ThreadingModel=Both.
+
+Explain the differences between Server-side and Client-side code? Server side scripting means that all the script will be executed by the server and  interpreted as needed. ASP doesn't have some of the functionality like sockets, uploading,  etc. For these you have to make a custom components usually in VB or VC++. Client side  scripting means that the script will be executed immediately in the browser such as form field validation, clock, email validation, etc. Client side scripting is usually done in  VBScript or JavaScript. Download time, browser compatibility, and visible code - since  JavaScript and VBScript code is included in the HTML page, then anyone can see the code by viewing the page source. Also a possible security hazards for the client computer.
+What type of code (server or client) is found in a Code-Behind class?
+C#
+
+Should validation (did the user enter a real date) occur server-side or client-side? Why?Client-side validation because there is no need to request a server side date when you  could obtain a date from the client machine.What are ASP.NET Web Forms? How is this technology different than what is available though ASP?Web Forms are the heart and soul of ASP.NET. Web Forms are the User Interface (UI) elements that give your Web applications their look and feel. Web Forms are similar to Windows Forms in that they provide properties, methods, and events for the controls that are placed onto  them. However, these UI elements render themselves in the appropriate markup language   required by the request, e.g. HTML. If you use Microsoft Visual Studio .NET, you will also get the familiar drag-and-drop interface used to create your UI for your Web application.
+What is the difference between Server.Transfer and Response.Redirect? Why would I choose one over the other?
+In earlier versions of IIS, if we wanted to send a user to a new Web page, the only option we had was Response.Redirect. While this method does accomplish our goal, it has several important drawbacks. The biggest problem is that this method causes each page to be treated as a separate transaction. Besides making it difficult to maintain your transactional   integrity, Response.Redirect introduces some additional headaches. First, it prevents good encapsulation of code. Second, you lose access to all of the properties in the Request  object. Sure, there are workarounds, but they're difficult. Finally, Response.Redirect  necessitates a round trip to the client, which, on high-volume sites, causes scalability problems.
+As you might suspect, Server.Transfer fixes all of these problems. It does this by performing the transfer on the server without requiring a roundtrip to the client.
+
+How can you provide an alternating color scheme in a Repeater control?AlternatingItemTemplate Like the ItemTemplate element, but rendered for every other row (alternating items) in the Repeater control. You can specify a different appearance for the AlternatingItemTemplate element by setting its style properties.
+Which template must you provide, in order to display data in a Repeater control?
+ItemTemplate
+
+What event handlers can I include in Global.asax?
+Application_Start,Application_End, Application_AcquireRequestState, Application_AuthenticateRequest, Application_AuthorizeRequest, Application_BeginRequest, Application_Disposed,  Application_EndRequest, Application_Error, Application_PostRequestHandlerExecute, Application_PreRequestHandlerExecute, 
+Application_PreSendRequestContent, Application_PreSendRequestHeaders, Application_ReleaseRequestState, Application_ResolveRequestCache, Application_UpdateRequestCache, Session_Start,Session_End
+You can optionally include "On" in any of method names. For example, you can name a BeginRequest event handler.Application_BeginRequest or Application_OnBeginRequest.You can also include event handlers in Global.asax for events fired by custom HTTP modules.Note that not all of the event handlers make sense for Web Services (they're designed for ASP.NET applications in general, whereas .NET XML Web Services are specialized instances of an ASP.NET app). For example, the Application_AuthenticateRequest and Application_AuthorizeRequest events are designed to be used with ASP.NET Forms authentication. 
+
+What is different b/w  webconfig.xml & Machineconfig.xmlWeb.config & machine.config both are configuration files.Web.config contains settings specific to an application where as machine.config contains settings to a computer. The Configuration system first searches settings in machine.config file & then looks in application configuration  files.Web.config, can appear in multiple directories on an ASP.NET Web application server. Each Web.config file applies configuration settings to its own directory and all child directories below it. There is only Machine.config file on a web server.
+
+If I'm developing an application that must accomodate multiple security levels though secure login and my ASP.NET web appplication is spanned across three web-servers (using round-robbin load balancing) what would be the best approach to maintain login-in state for the users?
+Use the state server or store the state in the database. This can be easily done through simple setting change in the web.config. 
+ Collapse | Copy Code
+<SESSIONSTATE
+StateConnectionString="tcpip=127.0.0.1:42424"
+sqlConnectionString="data source=127.0.0.1; user id=sa; password="
+cookieless="false"
+timeout="30"
+/>
+You can specify mode as "stateserver" or "sqlserver".
+
+Where would you use an iHTTPModule, and what are the limitations of any approach you might take in implementing one
+"One of ASP.NET's most useful features is the extensibility of the HTTP pipeline, the path that data takes between client and server. You can use them to extend your ASP.NET applications by adding pre- and post-processing to each HTTP request coming into your application. For example, if you wanted custom authentication facilities for your application, the best technique would be to intercept the request when it comes in and process the request in a custom HTTP module.
+
+How do you turn off cookies for one page in your site?
+Since no Page Level directive is present, I am afraid that cant be done.
+
+How do you create a permanent cookie? Permanent cookies are available until a specified expiration date, and are stored on the hard disk.So Set the 'Expires' property any value greater than DataTime.MinValue with respect to the current datetime. If u want the cookie which never expires set its Expires property equal to DateTime.maxValue.Which method do you use to redirect the user to another page without performing a round trip to the client?Server.Transfer and Server.Execute
+What property do you have to set to tell the grid which page to go to when using the Pager object?
+CurrentPageIndex
+
+Should validation (did the user enter a real date) occur server-side or client-side? Why? It should occur both at client-side and Server side.By using expression validator control with the specified expression ie.. the regular expression provides the facility of only validatating the date specified is in the correct format or not. But for checking the date where it is the real data or not should be done at the server side, by getting the system date ranges and checking the date whether it is in between that range or not.
+What does the "EnableViewState" property do? Why would I want it on or off? 
+Enable ViewState turns on the automatic state management feature that enables server controls to re-populate their values on a round trip without requiring you to write any code. This feature is not free however, since the state of a control is passed to and from the server in a hidden form field. You should be aware of when ViewState is helping you and when it is not. For example, if you are binding a control to data on every round trip, then you do not need the control to maintain it's view state, since you will wipe out any re-populated data in any case. ViewState is enabled for all server controls by default. To disable it, set the EnableViewState property of the control to false.
+
+What is the difference between Server.Transfer and Response.Redirect? Why would I choose one over the other? Server.Transfer() : client is shown as it is on the requesting page only, but the all the content is of the requested page. Data can be persist accros the pages using Context.Item collection, which is one of the best way to transfer data from one page to another keeping the page state alive.
+Response.Redirect() :client know the physical location (page name and query string as well). Context.Items loses the persisitance when nevigate to destination page. In earlier versions of IIS, if we wanted to send a user to a new Web page, the only option we had was Response.Redirect. While this method does accomplish our goal, it has several important drawbacks. The biggest problem is that this method causes each page to be treated as a separate transaction. Besides making it difficult to maintain your transactional integrity, Response.Redirect introduces some additional headaches. First, it prevents good encapsulation of code. Second, you lose access to all of the properties in the Request object. Sure, there are workarounds, but they're difficult. Finally, Response.Redirect necessitates a round trip to the client, which, on high-volume sites, causes scalability problems. As you might suspect, Server.Transfer fixes all of these problems. It does this by performing the transfer on the server without requiring a roundtrip to the client.
+
+Can you give an example of when it would be appropriate to use a web service as opposed to a non-serviced .NET component? 
+Communicating through a Firewall When building a distributed application with 100s/1000s of users spread over multiple locations, there is always the problem of communicating between client and server because of firewalls and proxy servers. Exposing your middle tier components as Web Services and invoking the directly from a Windows UI is a very valid option. 
+Application Integration When integrating applications written in various languages and running on disparate systems. Or even applications running on the same platform that have been written by separate vendors. 
+Business-to-Business Integration This is an enabler for B2B intergtation which allows one to expose vital business processes to authorized supplier and customers. An example would be exposing electronic ordering and invoicing, allowing customers to send you purchase orders and suppliers to send you invoices electronically. 
+Software Reuse This takes place at multiple levels. Code Reuse at the Source code level or binary componet-based resuse. The limiting factor here is that you can reuse the code but not the data behind it. Webservice overcome this limitation. A scenario could be when you are building an app that aggregates the functionality of serveral other Applicatons. Each of these functions could be performed by individual apps, but there is value in perhaps combining the the multiple apps to present a unifiend view in a Portal or Intranet. 
+When not to use Web Services: Single machine Applicatons When the apps are running on the same machine and need to communicate with each other use a native API. You also have the options of using component technologies such as COM or .NET Componets as there is very little overhead. 
+Homogeneous Applications on a LAN If you have Win32 or Winforms apps that want to communicate to their server counterpart. It is much more efficient to use DCOM in the case of Win32 apps and .NET Remoting in the case of .NET Apps
+Can you give an example of what might be best suited to place in the Application_Start and Session_Start subroutines? The Application_Start event is guaranteed to occur only once throughout the lifetime of the application. It's a good place to initialize global variables. For example, you might want to retrieve a list of products from a database table and place the list in application state or the Cache object. SessionStateModule exposes both Session_Start and Session_End events.
+
+What are the advantages and  disadvantages of viewstate?The primary advantages of the ViewState feature in ASP.NET are:
+Simplicity. There is no need to write possibly complex code to store form data between page submissions.
+Flexibility. It is possible to enable, configure, and disable ViewState on a control-by-control basis, choosing to persist the values of some fields but not others.
+There are, however a few disadvantages that are worth pointing out:
+
+Does not track across pages. ViewState information does not automatically transfer from page to page. With the session approach, values can be stored in the session and accessed from other pages. This is not possible with ViewState, so storing data into the session must be done explicitly.
+ViewState is not suitable for transferring data for back-end systems. That is, data still has to be transferred to the back end using some form of data object.
+Describe session handling in a webfarm, how does it work and what are the limits? ASP.NET Session supports storing of session data in 3 ways, i] in In-Process ( in the same memory that ASP.NET uses) , ii] out-of-process using Windows NT Service )in separate memory from ASP.NET ) or iii] in SQL Server (persistent storage). Both the Windows Service and SQL Server solution support a webfarm scenario where all the web-servers can be configured to share common session state store.
+ 
+1. Windows Service :
+We can start this service by Start | Control Panel | Administrative Tools | Services | . In that we service names  ASP.NET State Service. We can start or stop service by manually or configure to start automatically. Then we have to configure our web.config file
+
+ Collapse | Copy Code
+<CONFIGURATION><configuration>
+ <system.web>
+  <SessionState
+   mode = “StateServer”
+   stateConnectionString = “tcpip=127.0.0.1:42424”
+   stateNetworkTimeout = “10”
+   sqlConnectionString=”data source = 127.0.0.1; uid=sa;pwd=”
+   cookieless =”Flase”
+   timeout= “20” />
+ </system.web>
+</configuration> </SYSTEM.WEB>
+</CONFIGURATION>
+
+Here ASP.Net Session is directed to use Windows Service for state management on local server (address : 127.0.0.1 is TCP/IP loop-back address). The default port is 42424. we can configure to any port but for that we have to manually edit the registry.
+ Follow these simple steps
+In a webfarm make sure you have the same config file in all your web servers.
+Also make sure your objects are serializable.
+For session state to be maintained across different web servers in the webfarm, the application path of the web-site in the IIS Metabase should be identical in all the web-servers in the webfarm.
+Which template must you provide, in order to display data in a Repeater control? You have to use the ItemTemplate to Display data. Syntax is as follows,
+ Collapse | Copy Code
+  < ItemTemplate >
+   < div class =”rItem” >
+        < img src=”images/<%# Container.DataItem(“ImageURL”)%>”  hspace=”10” />
+    < b > <% # Container.DataItem(“Title”)%>
+   < /div >
+  < ItemTemplate >
+How can you provide an alternating color scheme in a Repeater control? 
+Using the AlternatintItemTemplate
+
+What property must you set, and what method must you call in your code, in order to bind the data from some data source to the Repeater control? Set the DataMember property to the name of the table to bind to. (If this property is not set, by default the first table in the dataset is used.)
+DataBind method, use this method to bind data from a source to a server control. This method is commonly used after retrieving a data set through a database query.What method do you use to explicitly kill a user s session? You can dump (Kill) the session yourself by calling the method Session.Abandon.
+ASP.NET automatically deletes a user's Session object, dumping its contents, after it has been idle for a configurable timeout interval. This interval, in minutes, is set in the <SESSIONSTATE>section of the web.config file. The default is 20 minutes.
+
+How do you turn off cookies for one page in your site? 
+Use Cookie.Discard property, Gets or sets the discard flag set by the server. When true, this property instructs the client application not to save the Cookie on the user's hard disk when a session ends.
+
+Which two properties are on every validation control? We have two common properties for every validation controls
+Control to Validate,
+Error Message.
+What tags do you need to add within the asp:datagrid tags to bind columns manually?
+
+ Collapse | Copy Code
+< asp:DataGrid id="dgCart" AutoGenerateColumns="False" CellPadding="4" Width="448px" runat="server"  >
+ < Columns >
+< asp:ButtonColumn HeaderText="SELECT" Text="SELECT" CommandName="select" >< /asp:ButtonColumn >
+< asp:BoundColumn DataField="ProductId" HeaderText="Product ID" >< /asp:BoundColumn >
+< asp:BoundColumn DataField="ProductName" HeaderText="Product Name" >< /asp:BoundColumn >
+< asp:BoundColumn DataField="UnitPrice" HeaderText="UnitPrice" >< /asp:BoundColumn >
+< /Columns >
+< /asp:DataGrid >
+How do you create a permanent cookie? 
+Permanent cookies are the ones that are most useful. Permanent cookies are available until a specified expiration date, and are stored on the hard disk. The location of cookies differs with each browser, but this doesn’t matter, as this is all handled by your browser and the server. If you want to create a permanent cookie called Name with a value of Nigel, which expires in one month, you’d use the following code
+ Collapse | Copy Code
+Response.Cookies ("Name") = "Nigel"
+Response.Cookies ("Name"). Expires = DateAdd ("m", 1, Now ())
+What tag do you use to add a hyperlink column to the DataGrid?
+ Collapse | Copy Code
+< asp:HyperLinkColumn > </ asp:HyperLinkColumn>
+Which method do you use to redirect the user to another page without performing a round trip to the client?
+Server.transfer
+
+What is the transport protocol you use to call a Web service SOAP ?
+HTTP Protocol
+
+Explain role based security ?
+Role Based Security lets you identify groups of users to allow or deny based on their role in the organization.In Windows NT and Windows XP, roles map to names used to identify user groups. Windows defines several built-in groups, including Administrators, Users, and Guests.To allow or deny access to certain groups of users, add the <ROLES>element to the authorization list in your Web application's Web.config file.e.g.
+ Collapse | Copy Code
+<AUTHORIZATION>< authorization >
+   < allow roles="Domain Name\Administrators" / >   < !-- Allow Administrators in domain. -- >
+   < deny users="*"  / >                            < !-- Deny anyone else. -- >
+< /authorization >
+How do you register JavaScript for webcontrols ?
+
+You can register javascript for controls using <CONTROL -name>Attribtues.Add(scriptname,scripttext) method.
+
+When do you set "<IDENTITY impersonate="true" />" ?
+Identity is a webconfig declaration under System.web, which helps to control the application Identity of the web applicaton. Which can be at any level(Machine,Site,application,subdirectory,or page), attribute impersonate with "true" as value specifies that client impersonation is used.
+
+What are different templates available in Repeater,DataList and Datagrid ?
+Templates enable one to apply complicated formatting to each of the items displayed by a control.Repeater control supports five types of templates.HeaderTemplate controls  how the header of the repeater control is formatted.ItemTemplate controls the formatting of each  item displayed.AlternatingItemTemplate controls how alternate items are formatted and the  SeparatorTemplate displays a separator between each item displyed.FooterTemplate is used for  controlling how the footer of the repeater control is formatted.The DataList and Datagrid supports two templates in addition to the above five.SelectedItem Template controls how a selected item is  formatted and EditItemTemplate controls how an item selected for editing is formatted.
+
+What is ViewState ? and how it is managed ?
+
+ASP.NET ViewState is a new kind of state service that developers can use to track  UI state on a per-user basis. Internally it uses an an old Web programming trick-roundtripping  state in a hidden form field and bakes it right into the page-processing framework.It needs less code to write and maintain state in your Web-based forms.
+
+What is web.config file ?
+
+Web.config file is the configuration file for the Asp.net web application. There is one web.config  file for one asp.net application which configures
+the particular application. Web.config file is  written in XML with specific tags having specific meanings.It includes databa which includes
+connections,Session States,Error Handling,Security etc.
+For example :
+
+< configuration >
+ Collapse | Copy Code
+< configuration >
+ < appSettings >
+    < add key="ConnectionString"
+         value="server=localhost;uid=sa;pwd=;database=MyDB" / >
+ < /appSettings >
+< /configuration >
+What is advantage of viewstate and what are benefits?
+
+When a form is submitted in classic ASP, all form values are cleared. Suppose you have submitted a  form with a lot of information and the server comes back with an error. You will have to go back to  the form and correct the information. You click the back button, and what happens.......ALL form values are CLEARED, and you will have to start all over again! The site did not maintain your  ViewState.With ASP .NET, the form reappears in the browser window together with all form  values.This is because ASP .NET maintains your ViewState. The ViewState indicates the status of the  page when submitted to the server.
+
+What tags do you need to add within the asp:datagrid tags to bind columns manually?
+
+Set AutoGenerateColumns Property to false on the datagrid tag and then use Column tag and an ASP:databound tag 
+
+ Collapse | Copy Code
+ < asp:DataGrid runat="server" id="ManualColumnBinding" AutoGenerateColumns="False" >
+  < Columns >
+      < asp:BoundColumn HeaderText="Column1" DataField="Column1"/ >
+        < asp:BoundColumn HeaderText="Column2" DataField="Column2"/ >
+  < /Columns >
+< /asp:DataGrid >
+<asp:DataGrid id=ManualColumnBinding runat="server" AutoGenerateColumns="False">
+<COLUMNS>   <asp:BoundColumn HeaderText="Column2" DataField="Column2"></asp:BoundColumn>
+</asp:DataGrid>
+Which property on a Combo Box do you set with a column name, prior to setting the DataSource, to display data in the combo box? 
+DataTextField and  DataValueField
+
+Which control would you use if you needed to make sure the values in two different controls matched?
+CompareValidator is used to ensure that two fields are identical.
+
+What is validationsummary server control?where it is used?.
+The ValidationSummary control allows you to summarize the error messages from all validation controls on a Web page in a single location. The summary can be displayed as a list, a bulleted list, or a single paragraph, based on the value of the DisplayMode property. The error message displayed in the ValidationSummary control for each validation control on the page is specified by the ErrorMessage property of each validation control. If the ErrorMessage property of the validation control is not set, no error message is displayed in the ValidationSummary control for that validation control. You can also specify a custom title in the heading section of the ValidationSummary control by setting the HeaderText property.
+You can control whether the ValidationSummary control is displayed or hidden by setting the ShowSummary property. The summary can also be displayed in a message box by setting the ShowMessageBox property to true.
+
+What is the sequence of operation takes place when a page is loaded?BeginTranaction  - only if the request is transacted
+Init    - every time a page is processed
+LoadViewState  - Only on postback
+ProcessPostData1  - Only on postback
+Load    - every time
+ProcessData2   - Only on Postback
+RaiseChangedEvent  - Only on Postback
+RaisePostBackEvent  - Only on Postback
+PreRender   - everytime
+BuildTraceTree  - only if tracing is enabled
+SaveViewState  - every time
+Render   - Everytime
+End Transaction  - only if the request is transacted
+Trace.EndRequest  - only when tracing is enabled
+UnloadRecursive  - Every request
+Difference between asp and asp.net?.
+"ASP (Active Server Pages) and ASP.NET are both server side technologies for building web sites and web applications, ASP.NET is Managed compiled code - asp is interpreted. and ASP.net is fully Object oriented. ASP.NET has been entirely re-architected to provide a highly productive programming experience based on the .NET Framework, and a robust infrastructure for building reliable and scalable web
+applications."
+
+Name the validation control available in asp.net?.RequiredField, RangeValidator,RegularExpression,Custom validator,compare ValidatorWhat are the various ways of securing a web site that could prevent from hacking etc .. ?
+Authentication/Authorization
+Encryption/Decryption
+Maintaining web servers outside the corporate firewall. etc.,
+What is the difference between in-proc and out-of-proc? 
+An inproc is one which runs in the same process area as that of the client giving tha advantage of speed but the disadvantage of stability becoz if it crashes it takes the client application also with it.Outproc is one which works outside the clients memory thus giving stability to the client, but we have to compromise a bit on speed.
+
+When you’re running a component within ASP.NET, what process is it running within on Windows XP? Windows 2000? Windows 2003?
+
+On Windows 2003 (IIS 6.0) running in native mode, the component is running within the w3wp.exe process associated with the application pool which has been configured for the web application containing the component.
+
+On Windows 2003 in IIS 5.0 emulation mode, 2000, or XP, it's running within the IIS helper process whose name I do not remember, it being quite a while since I last used IIS 5.0.
+
+What does aspnet_regiis -i do ?
+
+Aspnet_regiis.exe is The ASP.NET IIS Registration tool allows an administrator or installation program to easily update the script maps for an ASP.NET application to point to the ASP.NET ISAPI version associated with the tool. The tool can also be used to display the status of all installed versions of ASP. NET, register the ASP.NET version coupled with the tool, create client-script directories, and perform other configuration operations.
+ 
+When multiple versions of the .NET Framework are executing side-by-side on a single computer, the ASP.NET ISAPI version mapped to an ASP.NET application determines which version of the common language runtime is used for the application. 
+ 
+The tool can be launched with a set of optional parameters. Option "i" Installs the version of ASP.NET associated with Aspnet_regiis.exe and updates the script maps at the IIS metabase root and below. Note that only applications that are currently mapped to an earlier version of ASP.NET are affected
+
+What is a PostBack? 
+The process in which a Web page sends data back to the same page on the server.
+
+What is ViewState? How is it encoded? Is it encrypted? Who uses ViewState? ViewState is the mechanism ASP.NET uses to keep track of server control state values that don't otherwise post back as part of the HTTP form. ViewState Maintains the UI State of a Page
+  ViewState is base64-encoded. 
+ It is not encrypted but it can be encrypted by setting EnableViewStatMAC="true" & setting the machineKey validation type to 3DES.  If you want to NOT maintain the ViewState, include the directive < %@ Page EnableViewState="false" % > at the top of an .aspx page or add the attribute EnableViewState="false" to any control.\
+What is the < machinekey > element and what two ASP.NET technologies is it used for?
+
+Configures keys to use for encryption and decryption of forms authentication cookie data and view state data, and for verification of out-of-process session state identification.There fore 2 ASP.NET technique in which it is used are Encryption/Decryption & Verification
+
+What three Session State providers are available in ASP.NET 1.1? What are the pros and cons of each?
+
+ASP.NET provides three distinct ways to store session data for your application: in-process session state, out-of-process session state as a Windows service, and out-of-process session state in a SQL Server database. Each has it advantages. 
+
+In-process session-state mode
+Limitations: 
+ * When using the in-process session-state mode, session-state data is lost if aspnet_wp.exe or the application domain restarts. 
+ * If you enable Web garden mode in the < processModel > element of the application's Web.config file, do not use in-process session-state mode. Otherwise, random data loss can occur. 
+Advantage:
+ * in-process session state is by far the fastest solution. If you are storing only small amounts of volatile data in session state, it is recommended that you use the in-process provider.
+The State Server simply stores session state in memory when in out-of-proc mode. In this mode the worker process talks directly to the State Server
+SQL mode, session states are stored in a SQL Server database and the worker process talks directly to SQL. The ASP.NET worker processes are then able to take advantage of this simple storage service by serializing and saving (using .NET serialization services) all objects within a client's Session collection at the end of each Web request
+ Both these out-of-process solutions are useful primarily if you scale your application across multiple processors or multiple computers, or where data cannot be lost if a server or process is restarted.
+What is the difference between HTTP-Post and HTTP-Get?
+As their names imply, both HTTP GET and HTTP POST use HTTP as their underlying protocol. Both of these methods encode request parameters as name/value pairs in the HTTP request. 
+The GET method creates a query string and appends it to the script's URL on the server that handles the request. 
+The POST method creates a name/value pairs that are passed in the body of the HTTP request message.
+
+Name and describe some HTTP Status Codes and what they express to the requesting client.
+
+When users try to access content on a server that is running Internet Information Services (IIS) through HTTP or File Transfer Protocol (FTP), IIS returns a numeric code that indicates the status of the request. This status code is recorded in the IIS log, and it may also be displayed in the Web browser or FTP client. The status code can indicate whether a particular request is successful or unsuccessful and can also reveal the exact reason why a request is unsuccessful. There are 5 groups ranging from 1xx - 5xx of http status codes exists.
+101 - Switching protocols.
+200 - OK. The client request has succeeded
+302 - Object moved. 
+400 - Bad request.
+500.13 - Web server is too busy.
+
+Explain < @OutputCache% > and the usage of VaryByParam, VaryByHeader.
+
+OutputCache is used to control the caching policies of an ASP.NET page or user control. To cache a page @OutputCache directive should be defined as follows < %@ OutputCache Duration="100" VaryByParam="none" % >
+
+VaryByParam: A semicolon-separated list of strings used to vary the output cache. By default, these strings correspond to a query string value sent with GET method attributes, or a parameter sent using the POST method. When this attribute is set to multiple parameters, the output cache contains a different version of the requested document for each specified parameter. Possible values include none, *, and any valid query string or POST parameter name.
+
+VaryByHeader: A semicolon-separated list of HTTP headers used to vary the output cache. When this attribute is set to multiple headers, the output cache contains a different version of the requested document for each specified header.
+
+What is the difference between repeater over datalist and datagrid?
+
+The Repeater class is not derived from the WebControl class, like the DataGrid and DataList. Therefore, the Repeater lacks the stylistic properties common to both the DataGrid and DataList. What this boils down to is that if you want to format the data displayed in the Repeater, you must do so in the HTML markup. 
+The Repeater control provides the maximum amount of flexibility over the HTML produced. Whereas the DataGrid wraps the DataSource contents in an HTML < table >, and the DataList wraps the contents in either an HTML < table > or < span > tags (depending on the DataList's RepeatLayout property), the Repeater adds absolutely no HTML content other than what you explicitly specify in the templates.
+While using Repeater control, If we wanted to display the employee names in a bold font we'd have to alter the "ItemTemplate" to include an HTML bold tag, Whereas with the DataGrid or DataList, we could have made the text appear in a bold font by setting the control's ItemStyle-Font-Bold property to True.
+The Repeater's lack of stylistic properties can drastically add to the development time metric. For example, imagine that you decide to use the Repeater to display data that needs to be bold, centered, and displayed in a particular font-face with a particular background color. While all this can be specified using a few HTML tags, these tags will quickly clutter the Repeater's templates. Such clutter makes it much harder to change the look at a later date. Along with its increased development time, the Repeater also lacks any built-in functionality to assist in supporting paging, editing, or editing of data. Due to this lack of feature-support, the Repeater scores poorly on the usability scale.
+
+However, The Repeater's performance is slightly better than that of the DataList's, and is more noticeably better than that of the DataGrid's. Following figure shows the number of requests per second the Repeater could handle versus the DataGrid and DataList
+
+Can we handle the error and redirect to some pages using web.config?
+
+Yes, we can do this, but to handle errors, we must know the error codes; only then we can take the user to a proper error message page, else it may confuse the user. 
+CustomErrors Configuration section in web.config file:
+The default configuration is:
+ Collapse | Copy Code
+< customErrors mode="RemoteOnly"
+defaultRedirect="Customerror.aspx" >
+  < error statusCode="404" redirect="Notfound.aspx" / >
+< /customErrors >
+If mode is set to Off, custom error messages will be disabled. Users will receive detailed exception error messages.
+If mode is set to On, custom error messages will be enabled. 
+If mode is set to RemoteOnly, then users will receive custom errors, but users accessing the site locally will receive detailed error messages.
+Add an < error > tag for each error you want to handle. The error tag will redirect the user to the Notfound.aspx page when the site returns the 404 (Page not found) error.
+
+[Example]
+
+There is a page MainForm.aspx
+
+ Collapse | Copy Code
+Private
+Sub Page_Load(ByVal sender As System.Object, ByVal e As System.EventArgs)
+Handles MyBase.Load
+     'Put user code to initialize the
+page here
+Dim str As System.Text.StringBuilder
+str.Append("hi") ' Error Line as str is not instantiated
+Response.Write(str.ToString)
+End Sub
+[Web.Config]
+
+< customErrors mode="On" defaultRedirect="Error.aspx"/ >
+' a simple redirect will take the user to Error.aspx [user defined] error file.
+
+ Collapse | Copy Code
+< customErrors mode="RemoteOnly" defaultRedirect="Customerror.aspx" >
+  < error statusCode="404" redirect="Notfound.aspx" / >
+< /customErrors >
+'This will take the user to NotFound.aspx defined in IIS.
+How do you implement Paging in .Net?
+
+The DataGrid provides the means to display a group of records from the data source (for example, the first 10), and then navigate to the "page" containing the next 10 records, and so on through the data.
+
+Using Ado.Net we can explicit control over the number of records returned from the data source, as well as how much data is to be cached locally in the DataSet.
+Using DataAdapter.fill method give the value of 'Maxrecords' parameter 
+(Note: - Don't use it because query will return all records but fill the dataset based on value of 'maxrecords' parameter).
+For SQL server database, combines a WHERE clause and a ORDER BY clause with TOP predicate.
+If Data does not change often just cache records locally in DataSet and just take some records from the DataSet to display.
+What is the difference between Server.Transfer and Response.Redirect?
+
+Server.Transfer() : client is shown as it is on the requesting page only, but the all the content is of the requested page. Data can be persist across the pages using Context.Item collection, which is one of the best way to transfer data from one page to another keeping the page state alive.
+
+Response.Dedirect() :client knows the physical location (page name and query string as well). Context.Items loses the persistence when navigate to destination page. In earlier versions of IIS, if we wanted to send a user to a new Web page, the only option we had was Response.Redirect. While this method does accomplish our goal, it has several important drawbacks. The biggest problem is that this method causes each page to be treated as a separate transaction. Besides making it difficult to maintain your transactional integrity, Response.Redirect introduces some additional headaches. First, it prevents good encapsulation of code. Second, you lose access to all of the properties in the Request object. Sure, there are workarounds, but they're difficult. Finally, Response.Redirect necessitates a round trip to the client, which, on high-volume sites, causes scalability problems. As you might suspect, Server.Transfer fixes all of these problems. It does this by performing the transfer on the server without requiring a roundtrip to the client.
+
+Response.Redirect sends a response to the client browser instructing it to request the second page. This requires a round-trip to the client, and the client initiates the Request for the second page. Server.Transfer transfers the process to the second page without making a round-trip to the client. It also transfers the HttpContext to the second page, enabling the second page access to all the values in the HttpContext of the first page.
+
+Can you create an app domain?
+
+Yes, We can create user app domain by calling on of the following overload static methods of the System.AppDomain class
+
+Public static AppDomain CreateDomain(String friendlyName)
+Public static AppDomain CreateDomain(String friendlyName, Evidence securityInfo)
+Public static AppDomain CreateDomain(String friendlyName, Evidence securityInfo, AppDomainSetup info)
+Public static AppDomain CreateDomain(String friendlyName, Evidence securityInfo, String appBasePath, String appRelativeSearchPath, bool shadowCopyFiles)
+What are the various security methods which IIS Provides apart from .NET ?
+
+The various security methods which IIS provides are
+
+Authentication Modes
+IP Address and Domain Name Restriction
+DNS Lookups DNS Lookups
+The Network ID and Subnet Mask
+SSL
+What is Web Gardening? How would using it affect a design?  
+
+The Web Garden Model
+The Web garden model is configurable through the section of the machine.config file. Notice that the section is the only configuration section that cannot be placed in an application-specific web.config file. This means that the Web garden mode applies to all applications running on the machine. However, by using the node in the machine.config source, you can adapt machine-wide settings on a per-application basis.
+
+Two attributes in the section affect the Web garden model. They are webGarden and cpuMask. The webGarden attribute takes a Boolean value that indicates whether or not multiple worker processes (one per each affinitized CPU) have to be used. The attribute is set to false by default. The cpuMask attribute stores a DWORD value whose binary representation provides a bit mask for the CPUs that are eligible to run the ASP.NET worker process. The default value is -1 (0xFFFFFF), which means that all available CPUs can be used. The contents of the cpuMask attribute is ignored when the webGarden attribute is false. The cpuMask attribute also sets an upper bound to the number of copies of aspnet_wp.exe that are running.
+
+Web gardening enables multiple worker processes to run at the same time. However, you should note that all processes will have their own copy of application state, in-process session state, ASP.NET cache, static data, and all that is needed to run applications. When the Web garden mode is enabled, the ASP.NET ISAPI launches as many worker processes as there are CPUs, each a full clone of the next (and each affinitized with the corresponding CPU). To balance the workload, incoming requests are partitioned among running processes in a round-robin manner. Worker processes get recycled as in the single processor case. Note that ASP.NET inherits any CPU usage restriction from the operating system and doesn't include any custom semantics for doing this.
+
+All in all, the Web garden model is not necessarily a big win for all applications. The more stateful applications are, the more they risk to pay in terms of real performance. Working data is stored in blocks of shared memory so that any changes entered by a process are immediately visible to others. However, for the time it takes to service a request, working data is copied in the context of the process. Each worker process, therefore, will handle its own copy of working data, and the more stateful the application, the higher the cost in performance. In this context, careful and savvy application benchmarking is an absolute must.
+
+Changes made to the section of the configuration file are effective only after IIS is restarted. In IIS 6, Web gardening parameters are stored in the IIS metabase; the webGarden and cpuMask attributes are ignored.
+
+What is view state?.where it stored?.can we disable it?
+
+The web is state-less protocol, so the page gets instantiated, executed, rendered and then disposed on every round trip to the server. The developers code to add "statefulness" to the page by using Server-side storage for the state or posting the page to itself. When require to persist and read the data in control on webform, developer had to read the values and store them in hidden variable (in the form), which were then used to restore the values. With advent of .NET framework, ASP.NET came up with ViewState mechanism, which tracks the data values of server controls on ASP.NET webform. In effect,ViewState can be viewed as "hidden variable managed by ASP.NET framework!". When ASP.NET page is executed, data values from all server controls on page are collected and encoded as single string, which then assigned to page's hidden atrribute  "< input type=hidden >", that is part of page sent to the client.
+
+ViewState value is temporarily saved in the client's browser.ViewState can be disabled for a single control, for an entire page orfor an entire web application. The syntax is:
+
+Disable ViewState for control (Datagrid in this example)
+
+ Collapse | Copy Code
+< asp:datagrid EnableViewState="false" ... / >
+Disable ViewState for a page, using Page directive
+ Collapse | Copy Code
+< %@ Page EnableViewState="False" ... % >
+Disable ViewState for application through entry in web.config
+ Collapse | Copy Code
+< Pages EnableViewState="false" ... / >
+.NET FrameWork FAQ's
+When was .NET announced?
+
+Bill Gates delivered a keynote at Forum 2000, held June 22, 2000, outlining the .NET 'vision'. The July 2000 PDC had a number of sessions on .NET technology, and delegates were given CDs containing a pre-release version of the .NET framework/SDK and Visual Studio.NET.
+
+When was the first version of .NET released?
+
+The final version of the 1.0 SDK and runtime was made publicly available around 6pm PST on 15-Jan-2002. At the same time, the final version of Visual Studio.NET was made available to MSDN subscribers.
+
+What platforms does the .NET Framework run on?
+
+The runtime supports Windows XP, Windows 2000, NT4 SP6a and Windows ME/98. Windows 95 is not supported. Some parts of the framework do not work on all platforms - for example, ASP.NET is only supported on Windows XP and Windows 2000. Windows 98/ME cannot be used for development.
+
+IIS is not supported on Windows XP Home Edition, and so cannot be used to host ASP.NET. However, the ASP.NET Web Matrix
+
+web server does run on XP Home.
+The Mono project is attempting to implement the .NET framework on Linux.
+
+What is the CLR?
+
+CLR = Common Language Runtime. The CLR is a set of standard resources that (in theory) any .NET program can take advantage of, regardless of programming language. Robert Schmidt (Microsoft) lists the following CLR resources in his MSDN PDC# article:
+
+Object-oriented programming model (inheritance, polymorphism, exception handling, garbage collection) 
+ Security model 
+ Type system 
+ All .NET base classes 
+ Many .NET framework classes 
+ Development, debugging, and profiling tools 
+ Execution and code management 
+ IL-to-native translators and optimizers 
+What this means is that in the .NET world, different programming languages will be more equal in capability than they have ever been before, although clearly not all languages will support all CLR services.
+
+ 
+
+What is the CTS?
+CTS = Common Type System. This is the range of types that the .NET runtime understands, and therefore that .NET applications can use. However note that not all .NET languages will support all the types in the CTS. The CTS is a superset of the CLS.
+
+ 
+
+What is the CLS?
+CLS = Common Language Specification. This is a subset of the CTS which all .NET languages are expected to support. The idea is that any program which uses CLS-compliant types can interoperate with any .NET program written in any language.
+In theory this allows very tight interop between different .NET languages - for example allowing a C# class to inherit from a VB class.
+
+ 
+
+What is IL?
+IL = Intermediate Language. Also known as MSIL (Microsoft Intermediate Language) or CIL (Common Intermediate Language). All .NET source code (of any language) is compiled to IL. The IL is then converted to machine code at the point where the software is installed, or at run-time by a Just-In-Time (JIT) compiler.
+
+ 
+
+What does 'managed' mean in the .NET context?
+The term 'managed' is the cause of much confusion. It is used in various places within .NET, meaning slightly different things.Managed code: The .NET framework provides several core run-time services to the programs that run within it - for example exception handling and security. For these services to work, the code must provide a minimum level of information to the runtime.
+
+Such code is called managed code. All C# and Visual Basic.NET code is managed by default. VS7 C++ code is not managed by default, but the compiler can produce managed code by specifying a command-line switch (/com+).
+Managed data: This is data that is allocated and de-allocated by the .NET runtime's garbage collector. C# and VB.NET data is always managed. VS7 C++ data is unmanaged by default, even when using the /com+ switch, but it can be marked as managed using the __gc keyword.Managed classes: This is usually referred to in the context of Managed Extensions (ME) for C++. When using ME C++, a class can be marked with the __gc keyword. As the name suggests, this means that the memory for instances of the class is managed by the garbage collector, but it also means more than that. The class becomes a fully paid-up member of the .NET community with the benefits and restrictions that brings. An example of a benefit is proper interop with classes written in other languages - for example, a managed C++ class can inherit from a VB class. An example of a restriction is that a managed class can only inherit from one base class.
+
+ 
+
+What is reflection?
+All .NET compilers produce metadata about the types defined in the modules they produce. This metadata is packaged along with the module (modules in turn are packaged together in assemblies), and can be accessed by a mechanism called reflection. The System.Reflection namespace contains classes that can be used to interrogate the types for a module/assembly. 
+Using reflection to access .NET metadata is very similar to using ITypeLib/ITypeInfo to access type library data in COM, and it is used for similar purposes - e.g. determining data type sizes for marshaling data across context/process/machine boundaries.
+Reflection can also be used to dynamically invoke methods (see System.Type.InvokeMember ) ,  or even create types dynamically at run-time (see System.Reflection.Emit.TypeBuilder).
+
+ 
+
+What is the difference between Finalize and Dispose (Garbage collection) ?
+
+Class instances often encapsulate control over resources that are not managed by the runtime, such as window handles (HWND), database connections, and so on. Therefore, you should provide both an explicit and an implicit way to free those resources. Provide implicit control by implementing the protected Finalize Method on an object (destructor syntax in C# and the Managed Extensions for C++). The garbage collector calls this method at some point after there are no longer any valid references to the object. In some cases, you might want to provide programmers using an object with the ability to explicitly release these external resources before the garbage collector frees the object. If an external resource is scarce or expe
+
+<end node> 5P9i0s8y19Z
+dt=Text
+<node>
+Reset .net Version No IIS Restart
+3
+http://mlichtenberg.wordpress.com/2011/06/09/changing-the-asp-net-version-of-a-site-running-on-iis6/
+
+<end node> 5P9i0s8y19Z
+dt=Text
+<node>
+SQL Injection using Module
+3
+http://www.c-sharpcorner.com/Blogs/1445/handling-sql-injection-attack-using-global-asax-page.aspx
+
+<end node> 5P9i0s8y19Z
+dt=Text
+<node>
+Classic Asp Notes
+2
+'Call Configure_TrackerScripts
+Sub Configure_TrackerScripts
+   Dim PATH_INFO : PATH_INFO = Request.ServerVariables("PATH_INFO")
+   Dim PATH_URL : PATH_URL = Request.ServerVariables("URL")
+   
+   IF InStr(PATH_URL,"China/Default.asp") <> 0 THEN
+      Response.Write("<Script type='text/javascript' src='/include/js/floodlight/landingpage/lp-China.js'></script>")
+   END IF  
+   
+   IF InStr(PATH_URL,"China/Products-Services/default.asp") <> 0 THEN
+      Response.Write("Found PS")
+   END IF  
+   
+'China/Products-Services/default.asp 
+  ' Response.Write(PATH_INFO)
+  ' Response.Write(PATH_URL)
+   
+End Sub
+
+<end node> 5P9i0s8y19Z
+dt=Text
+<node>
+Useful Classic ASP Tips and Functions
+3
+Useful Classic ASP Tips and Functions
+
+Classic ASP String Functions
+
+The first code snippet is a little function that converts text into mixed case, or sentance case. It basically seeks out spaces in a string and converts the first character after thhe space to a capitalized letter and the remaining characters before the next space to lower case.
+
+Mixed Case Function
+<%
+Function MixedCase(strInput)
+Dim strPos, strSpace, strOutput
+' Set our position variable to the start of the string.
+strPosition = 1
+' Loop to check spaces
+Do While InStr(strPosition, strInput, " ", 1) <> 0
+     strSpace = InStr(strPosition, strInput, " ", 1)
+     strOutput = strOutput & UCase(Mid(strInput, strPosition, 1))
+     strOutput = strOutput & LCase(Mid(strInput, strPosition + 1, strSpace - strPosition))
+     strPosition = strSpace + 1
+Loop
+' Last word is currently uncapitalized - fix this
+strOutput = strOutput & UCase(Mid(strInput, strPosition, 1))
+strOutput = strOutput & LCase(Mid(strInput, strPosition + 1))
+MixedCase = strOutput
+End Function
+%>
+view rawmixedCase.aspThis Gist brought to you by GitHub.
+ASP seems to lack a URL Decode function but has a URL Encode function available. Here is a function that can decode any URL Encoded URL or variable.
+
+URL Decode Function
+
+Here is a practical example of when you would use the URLDecode function - to record the search terms someone has use to find your site in Google. This functions examines the string to see if it contains "google." and if it does, assumes the string contains google keywords and seeks out "q=" inside the string. If it also finds this, the stripStr is now created with the prefix "GOOGLE:" and the key words are appended to the end.
+Google Search Terms Strip Function
+<%
+FUNCTION StripGoogleTerms(stripStr)
+	stripStr = URLDecode(stripStr)
+	IF InStr(stripStr, "google.") THEN 'Google Refer
+		WordArray = Split(stripStr, "&")
+		FOR i = LBound(WordArray) TO UBound(WordArray)
+			pos = InStr(WordArray(i), "q=")
+			IF pos <> 0 THEN
+			   tempStr = "GOOGLE:" & MID(WordArray(i),pos+2)
+			END IF
+		NEXT
+	ELSE 'do nothing
+		tempStr = stripStr
+	END IF
+	StripGoogleTerms = tempStr
+END FUNCTION
+%>
+view rawstripGoogleSearch.aspThis Gist brought to you by GitHub.
+This next function is a short and sweet function that will strip HTML tags out of any string. It uses regex expressions and is very fast.
+
+Strip HTML Tags Function
+
+<%
+FUNCTION stripHTML(strHTML)
+  Dim objRegExp, strOutput, tempStr
+  Set objRegExp = New Regexp
+  objRegExp.IgnoreCase = True
+  objRegExp.Global = True
+  objRegExp.Pattern = "<(.|n)+?>"
+  'Replace all HTML tag matches with the empty string
+  strOutput = objRegExp.Replace(strHTML, "")
+  'Replace all < and > with &lt; and &gt;
+  strOutput = Replace(strOutput, "<", "&lt;")
+  strOutput = Replace(strOutput, ">", "&gt;")
+  stripHTML = strOutput    'Return the value of strOutput
+  Set objRegExp = Nothing
+END FUNCTION
+%>
+view rawstripStringHTML.aspThis Gist brought to you by GitHub.
+This snippet is a little function that strips out specified special characters. It basically seeks out any of the characters that exist in the array and removes them all.
+
+Strip Any Character Function
+
+<%
+Function StripSpecialChar(inStr)
+	 dim sOut,outStr,arrSpecialChar,intCounter
+	 arrSpecialChar  = Array("%20","&amp;","&","#","+","@")
+	 outStr = inStr
+	 intCounter = 0
+ 
+	 Do Until intCounter = UBOUND(arrSpecialChar)+1
+	   sOut = replace(outStr,arrSpecialChar(intCounter)  ,"")
+	   intCounter = intCounter + 1
+	   outStr = sOut
+	 Loop
+	 StripSpecialChar = outStr
+End Function
+%>
+view rawstripStringChar.aspThis Gist brought to you by GitHub.
+This next snippet is a simple function that will check an array for any occurances of a particular string.
+
+Check In Array Function
+
+<%
+Function in_array(element, arr)
+  in_array = False
+  For i=0 To Ubound(arr)
+     If Trim(arr(i)) = Trim(element) Then
+        in_array = True
+        Exit Function      
+     End If
+  Next
+End Function
+ 
+findThis = "Apple"
+fruits = Array("Banana","Apple","Orange")
+ 
+If in_array(findThis, fruits) Then 
+  Response.Write findThis & " is in the array"
+Else 
+  Response.Write findThis & " is not in the array"
+End If
+%>
+view rawcheckIfInArray.aspThis Gist brought to you by GitHub.
+General Classic ASP Tips
+
+Lately I have needed to perform a lot of redirects from old pages to new pages. Some of these old pages have decent rankings in search engines, so how do I make sure these new pages retain this ranking? By using a HTTP 301 Redirect (HTTP Moved Permanently). Here is how you code a 301 redirect in ASP:
+
+301 Redirect
+
+<%
+Response.Status="301 Moved Permanently"
+Response.AddHeader "Location", "/newPage.asp"
+%>
+view rawredirect.aspThis Gist brought to you by GitHub.
+If you are wanting to redirect to your default page name (index.asp,default.asp etc.), it is a good idea to redirect only to the folder name and leave off the name of the page like:
+
+Response.AddHeader "Location", "/subfolder/"
+Scrape External Site Content With Classic ASP
+
+There are many times were you have wanted to grab something from another site that isn't provided via RSS. You could type it in, but that would be time consuming. So how do we do this? We scrap the content from the site using the XMLHTTP object. If you have read the previous article on how to cache an RSS feed, you will no doubt say many similarities here in this article, so I won't re-explain those portions. So let's have a look at the code.
+
+<%
+FUNCTION LoadThePage(strPageText, strInputURL)
+	Set objXMLHTTP = Server.CreateObject("MSXML2.ServerXMLHTTP")
+	objXMLHTTP.Open "GET", strInputURL, False
+	objXMLHTTP.Send
+	strPageText = objXMLHTTP.responseText
+	Set objXMLHTTP = Nothing
+End FUNCTION
+ 
+FUNCTION GrabTheContent(strStart, strEnd)
+	Dim strStartPos, strEndPos, strLength
+	strStartPos = 0
+	strEndPos = 0
+	strLength = 0
+	'Find the Start Position of the Search String
+	strStartPos = instr(strPageText,strStart)
+	'Starting from the Search String start position and call it the end position
+	strEndPos = instr(strStartPos, strPageText, strEnd)
+	'Compute the length of the string in between the start and end positions
+	strLength = strEndPos - strStartPos
+	'filter the content, use trim to eliminate leading and trailing spaces
+	myContent = trim(mid(strPageText,strStartPos, len(strStart))) & "<br/>" & vbCRLF
+	myContent = myContent & trim(mid(strPageText,strStartPos + len(strStart), StrLength - len(strStart))) & "<br/>" & vbCRLF
+	GrabTheContent = myContent
+End FUNCTION
+ 
+'Declare the string used to hold the HTTP and the start/end strings
+Dim strPageText, strStart, strEnd
+'Declare and initialize the string used to hold the Input Page URL
+Dim strInputURL
+ 
+if DateDiff("h", Application("updated"), Now()) >=1 then
+	strInputURL = "http://birdsinbackyards.net/species/Cacatua-roseicapilla"
+	'Load the desired page into a string
+	LoadThePage strPageText, strInputURL
+	strHTML = GrabTheContent("<h5>Description</h5>","<h5>Similar species</h5>")
+	Application.Lock
+		Application("content") = strHTML
+		Application("updated") = Now()
+	Application.Unlock
+end if
+ 
+strHTML = Application("content")
+response.write (strHTML)
+%>
+view rawscrapeURL.aspThis Gist brought to you by GitHub.
+The code contains two functions, LoadThePage and GrabTheContent, and there names self explain what they perform. LoadThePage saves a copy the external HTML into an XMLHTTP object. GrabTheContent manipulates this object and returns a string that we can use. We give this function two paramters, the text at the start of the section we want to grab and the text that ends what we want to grab. Pretty simple. For this example, we will be using http://birdsinbackyards.net/species/Cacatua-roseicapilla as the page we retrieve text from.
+
+Now the main portion of the program firstly it checks the date stamp of the application variable from when it was last cached and if necessary, retrieves a new cache. We do this so we don't hammer someone else's website and slow down the performance of our page (and to not annoy the other webserver with heaps of connections). Once we have either retrieved a new cache or used the existing one, we display the contents on the page. So we would see these results:
+
+Description
+
+The Galah can be easily identified by its rose-pink head, neck and underparts, 
+with paler pink crown, and grey back, wings and undertail. Birds from the west of 
+Australia have comparatively paler plumage. Galahs have a bouncing acrobatic flight, 
+but spend much of the day sheltering from heat in the foliage of trees and shrubs. 
+Huge noisy flocks of birds congregate and roost together at night.
+Ok. So that is nice but how would we format this retrieved text? How do you remove the HTML tags?
+
+To strip the HTML tags, we will be using a function I have previously published named stripHTML. What this function does is strip ALL HTML tags using regex and returns plain text. Now to format the text appearance, we will need to use the string REPLACE function to change/remove/insert tags into appropriate places. Essentially, you scan through the retrieved page and add in the formatting you like. We will finally present this text inside a DIV with an inline style applied. So we would firstly add in the stripHTML function as shown previously on this page and then finally, we would change how the text is presented at the bottom of the script to this:
+
+<%
+strHTML = Application("content")
+strHTML = stripHTML(strHTML)
+strHTML = REPLACE(strHTML,"<h5>Description</h5>","<h5 style='font:bold 12px/15px Arial,Helvetica;color:#cc0000;'>Description</h5>")
+response.write "<DIV style='width:250px;font:normal 12px/15px Arial,Helvetica;color:#333333;text-align:justify;'>" & strHTML & "</div>"
+%>
+view rawscrapeURLV2end.aspThis Gist brought to you by GitHub.
+So let's take a look at how it appears now:
+
+Description
+
+The Galah can be easily identified by its rose-pink head, neck and underparts, with paler pink crown, and grey back, wings and undertail. Birds from the west of Australia have comparatively paler plumage. Galahs have a bouncing acrobatic flight, but spend much of the day sheltering from heat in the foliage of trees and shrubs. Huge noisy flocks of birds congregate and roost together at night.
+
+There you go, much better - and exactly the same results as the first example but much more readable and adaptable to your site after using your formatting. You could now proceed a step further and change this to use classes rather than using inline styles.
+
+Cache an RSS Feed in ASP
+
+If like me you work a lot with XML and RSS, it will be necessary to cache it to reduce the load on systems. ASP would normally request the file each and every time the script is loaded in the browser. The following method caches an RSS feed for a specified period of time, thus reducing the load on a server greatly. I am going to assume you understand the RSS 2.0 format in this example.
+
+<%
+if DateDiff("h", Application("rss-html-time"), Now()) >=1 then
+    extURL = "http://newsrss.bbc.co.uk/rss/newsonline_world_edition/front_page/rss.xml"
+ 
+    set xmlDoc = createObject("Msxml.DOMDocument")
+    xmlDoc.async = false
+    xmlDoc.setProperty "ServerHTTPRequest", true
+    xmlDoc.load(extURL)
+    ' Check RSS is correct
+    if (xmlDoc.parseError.errorCode <> 0) then
+	Response.Write "XML error: " & xmlDoc.parseError.reason
+    else
+	set itemNodes = xmlDoc.selectNodes("//item/*")
+	for each item in itemNodes
+	        if item.tagName = "title" then
+			strItemTitle = strItemTitle & item.text & "#%#"
+		elseif item.tagName = "link" then
+			strItemLink = strItemLink & item.text & "#%#"
+		elseif item.tagName = "description" then
+			strItemDescription = strItemDescription & item.text & "#%#"
+		end if
+	next
+	arrItemTitle = split(strItemTitle,"#%#")
+	arrItemLink = split(strItemLink,"#%#")
+	arrItemDescription = split(strItemDescription,"#%#")
+ 
+	strHTML = "<DIV id=feed>"
+	for a = 0 to UBound(arrItemTitle) - 1
+                strHTML = strHTML & "<div id=article" & a & ">"
+		strHTML = strHTML & "<a href='" & arrItemLink(a) & "'>" & arrItemTitle(a) & "</a>"
+		if strItemDescription <> "" then
+			strHTML = strHTML & "" & arrItemDescription(a)
+		end if
+                strHTML = strHTML & "</div>"
+	next
+	strHTML = strHTML & "</div>"
+	set channelNodes = nothing
+	set itemNodes = nothing
+	Application.Lock
+		Application("rss-html") = strHTML
+		Application("rss-html-time") = Now()
+	Application.Unlock
+    end if
+end if
+ 
+set xmlDoc = nothing
+response.write(Application("rss-html"))
+%>
+
+view rawcacheRSS.aspThis Gist brought to you by GitHub.
+Essentially, the script checks the timestamp of the application variable, and if it has been longer than 1 hour, it will reload the RSS feed into an application variable, otherwise it will use the existing content inside the application variable rss-html. If the script needs to retrieve the RSS feed, it loads it into a DOM object and then parses the RSS looking for <item> tags. We then create a string for each of the RSS fields we are interested in storing. While we parse each <item> we add a delimiter inside these strings "#%#" to separate the entries. Once we have finished parsing the RSS, we are left with three strings.
+
+We now split these strings into arrays using the split function, seeking the delimiter "#%#" we previously used. Once the elements are inside three arrays, we loop through with a FOR loop until we reach the end of the arrays. We can process each of the elements as we loop through and format as required. The reason I prefer not to feed the RSS straight into an array is because we would need to determine the number of records and redim the array, where as with the method I have used, you create a concatenated string that can be easily split later at the delimiters and feed into an array.
+
+<end node> 5P9i0s8y19Z
+dt=Text
+<node>
+Cache With File
+3
+<%
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+' Author: Chris Davis
+' Email: web.jockey@verizon.net
+' Use: Feel free to use or modify this source code as you
+'      like for your own applications.
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+' Purpose of Functions
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+' This collection of functions are meant to easily store
+' and retreive files from a common web server cache
+' directory.  The main reason for this is to help speed up
+' web pages where remote slow data sources such as
+' Newsfeeds, Stock Quotes, weather, or other data are 
+' rendered, then displayed.  This can help to minimize
+' the number of actual requests made of the external data
+' sources while speeding up performance for those who visit
+' pages with cached information on them.
+'
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+' Prerequisites
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+' Create folder within your wwwroot folder called 
+' "CacheFiles".  Make sure that the IUSR web account has
+' change priviledges to this folder so cache files can be
+' created.
+'
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+' Example
+'   Be sure to include this file using the
+'   <!-- #INCLUDE VIRTUAL="/Include/cache.asp" -->
+'   directive...  Example code below assumes this...
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+'   Dim CachedStockSymbols
+'
+'   ' To simplify our example, let's assume we have some 
+'   ' generic function called GetStocks() which reads stock 
+'   ' symbols from some external source and handles rendering
+'   ' of data into HTML output.
+'   ' It may take a while to read the stock symbols so you
+'   ' are interested in improving performance.  Also, in case
+'   ' your server loses connection with the external source,
+'   ' want to pull from recent cache so that something is
+'   ' displayed.  You decide that you only need to pull the
+'   ' information once every 15 minutes.
+'
+'   ' First, see if we have a cached version of our HTML.
+'   ' The ID name for this page is "Stocks", cache needs
+'   ' to be newer than 15 minutes, and we do not want to
+'   ' override the time and get what's cached...
+'   CachedStockSymbols = GetFromCache ("Stocks", 15, False)
+'
+'   If CachedStockSymbols = "" Then
+'     ' If there's nothing in cache that's valid, then 
+'     ' get stocks...
+'     CachedStockSymbols = GetStocks ("^DJI ^IXIC ^GSPC")
+'     If CachedStockSymbols = "" Then
+'       ' If the GetStocks function didn't return anything
+'       ' then get what was last cached, regardless of age...
+'       CachedStockSymbols = GetFromCache ("Stocks", 15, True)
+'     Else
+'       ' Now that we have new stock feed, save it to cache
+'       ' for next user...
+'       SaveToCache ("Stocks", CachedStockSymbols)
+'     End If
+'   End If
+'   
+'   ' Output CachedStockSymbols
+'   Response.Write CachedStockSymbols
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+' Notes
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+' These cache files are unique to each page.  The file name
+' of each cache file is based on the PATH_INFO server 
+' variable which is unique for each page.  Add to that the
+' ID string so you can pull from multiple cache sources on
+' a page and this becomes a very flexible utility.
+'
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+
+
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+' CachePath - Creates a standard path location and file name
+' to store the cache file.  The current ASP page is used with
+' all path related characters stripped from the path and ID
+' to automatically generate a unique ID.  As long as unique
+' cache IDs exist on one page, then there will be no conflict.
+'
+' strID can be the same on multiple pages.  It is appended
+' to the end of each cache file.  For example, if my page
+' were /Content/Default.asp and from within that ASP file
+' I created a cache with the strID of "Stocks", the resulting
+' file put into the CacheFiles folder would be named:
+' -Content-Default-asp-Stocks.cache
+' If another page located in /Content/MyFolder/Stocks.asp
+' used "Stocks" as the strID, the resulting name would be:
+' -Content-MyFolder-Stocks-asp-Stocks.cache
+
+
+Function CachePath (strID)
+	' The following lines make sure that no illegal characters
+	' exist in the cache filename.
+	CachePath = Request.ServerVariables("PATH_INFO") & "-" & strID
+	CachePath = Replace(CachePath, ":", "-")
+	CachePath = Replace(CachePath, "\", "-")
+	CachePath = Replace(CachePath, "/", "-")
+	CachePath = Replace(CachePath, ".", "-")
+
+	' If you decide to move the location of your CacheFiles folder,
+	' just make the change here:
+	CachePath = Server.Mappath("\CacheFiles") & "\" & CachePath & ".cache"
+End Function
+
+
+
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+' SaveToCache - Saves a given string input to a cache file.
+'
+' strID - Cache ID to save as
+'
+' strInput - Content to be cached to disk
+
+Sub SaveToCache (strID, strInput)
+	Dim LocalFileLoc, f, oFSO
+	' Calculate Cache File Location
+	LocalFileLoc = CachePath (strID)
+	
+	Set oFSO = CreateObject("Scripting.FileSystemObject")
+
+	' Delete old file
+	If (oFSO.FileExists(LocalFileLoc)) Then
+		oFSO.DeleteFile(LocalFileLoc)
+	End If
+
+	' Create new one
+	Set f = oFSO.OpenTextFile(LocalFileLoc, 2, True)
+	f.Write strInput
+	f.Close
+	Set f = Nothing
+	Set oFSO = Nothing
+End Sub
+
+
+
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+' GetFromCache - Reads a file from the local disk and returns
+' the contents of the file if the cache is current.  If cache
+' is not current, then an empty string is returned.
+'
+' strID - ID of Cache file.  This is used when caching more
+' one item on a page.  Give it a ID string that's unique on
+' the page.
+'
+' intMinutes - Maximum age in minutes the cache file can be
+' used from original time of creation.
+'
+' bUseExisting - (True/False) - When this is set to true, 
+' the cache file will be read regardless of its age, if
+' available.  If False, then the cache file is read in
+' only if it is newer than intMinutes (see above).  If the
+' cache file is older or doesn't exist, then a null string
+' is returned.
+
+Function GetFromCache (strID, intMinutes, bUseExisiting)
+	Dim oFSO, oFile, PermissionChecker, FileInput
+	Dim LocalFileLoc, LastModified
+
+	' Set default value
+	GetFromCache = ""
+
+	' Get the Cache File Location
+	LocalFileLoc = CachePath (strID)
+
+	' Check to see if file exists
+	Set oFSO = Server.CreateObject("Scripting.FileSystemObject")
+	If (oFSO.FileExists(LocalFileLoc)) Then
+		'Check to see if current user can access the file
+		Set PermissionChecker = Server.CreateObject("MSWC.PermissionChecker")
+		If PermissionChecker.HasAccess(LocalFileLoc) Then
+			'Get file date for time comparison
+			Set oFile = oFSO.GetFile(LocalFileLoc)
+			LastModified = oFile.DateLastModified
+			'If file is new enough or bUseExisiting is True, then read file.
+			If (DateDiff ("n", LastModified, Now()) < intMinutes) or (bUseExisiting = True) Then
+				Set FileInput = oFSO.OpenTextFile(LocalFileLoc, 1)
+				do while not FileInput.AtEndOfStream
+					GetFromCache = GetFromCache & FileInput.ReadLine & vbCRLF
+				loop
+				FileInput.Close
+				Set FileInput = Nothing
+			End If
+			Set oFile = Nothing
+		End If
+		Set PermissionChecker = Nothing
+	End If
+	Set oFSO = Nothing
+End Function
+%>
+
+<end node> 5P9i0s8y19Z
+dt=Text
+<node>
+Chech EOF BOF
+3
+If Not oRSLanguage.EOF <> True And oRSLanguage.BOF <> True then
+	   If Not (oRSLanguage Is Nothing) Then
+	    If oRSLanguage.RecordCount > 0 Then
+		strCharset = oRSLanguage("WindowsCharset")
+		strLanguageTag = oRSLanguage("LanguageTag")
+		end if
+		End If
+	End If
+
+<end node> 5P9i0s8y19Z
+dt=Text
+<node>
+DBML
+2
+SET FMTONLY OFF
+GO
+
+Always use variable Tables VS Temp tables
+
+<end node> 5P9i0s8y19Z
+dt=Text
+<node>
+Remote Desktop Force
+2
+mstsc /v:sbrkwebpr01 /admin
+
+<end node> 5P9i0s8y19Z
+dt=Text
+<node>
+Java Script
+2
+$("#<%= txtSymbol.ClientID %>")
+
+http://jonobr1.github.io/two.js/
+
+
+On further on using AJAX/JSON.
+
+You need to make sure that you include this script
+
+json3.js  (you'll find it /Scripts/ folder of the main "Eaton_DotNet4" project in SVN)
+
+This basically ensures that certain functions (like Stringify) are available in IE7 (and thus IE8 in compatibility mode which we still support due to Eaton).
+
+Cheers,
+Chris
+
+<end node> 5P9i0s8y19Z
+dt=Text
+<node>
+JQuery Tips And Stuff
+2
+<end node> 5P9i0s8y19Z
+dt=Text
+<node>
+Check if JQuery Loaded or Get From Resource
+3
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>    window.jQuery || document.write('<script src="/scripts/jquery.1.9.1.min.js"><\/script>')</script>
+<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js"></script>
+<script>    window.jQuery.ui || document.write('<script src="/scripts/jquery-ui.min.js"><\/script>')</script>
+
+<end node> 5P9i0s8y19Z
+dt=Text
+<node>
+Drag and Drop
+3
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Signal Tower Prototype</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/main.css">
+    <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+</head>
+<body>
+    <!--[if lt IE 7]>
+        <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+    <div id="CONTENTDIV">
+        <table class="CONTENTDIVTABLE" style="padding: 3px;">
+            <tr>
+                <td>
+                    <div class="solutionComponentSelectorDiv">
+                        <div class="top border">
+                            <fieldset>
+                                <legend>Base Components:</legend>
+                                <div class="appFullWidthFormFieldContainer clearfix">
+                                    <label for="rdioDiameter40mm">Diameter</label><em>*</em>
+                                    <input type="radio" name="Diameter" id="rdioDiameter40mm" value="SL4 40mm" /><em>SL4 40mm</em>
+                                </div>
+                                <div class="appFullWidthFormFieldContainer clearfix">
+                                    <label for="rdioDiameter70mm">&nbsp;</label><em>*</em>
+                                    <input type="radio" name="Diameter" id="rdioDiameter70mm" value="SL7 70mm" /><em>SL7 70mm</em>
+                                </div>
+                            </fieldset>
+                        </div>
+                        <div class="top border">
+                            <fieldset>
+                                <legend>Base Components:</legend>
+                                <div class="appFullWidthFormFieldContainer clearfix">
+                                    <label for="rdioDiameter40mm">Voltage</label><em>*</em>
+                                    <input type="radio" name="Voltage" id="Radio1" value="SL4 40mm" /><em>24 V AC/DC (SmartWire-DT ready)</em>
+                                </div>
+                                <div class="appFullWidthFormFieldContainer clearfix">
+                                    <label for="rdioDiameter70mm">&nbsp;</label><em>*</em>
+                                    <input type="radio" name="Voltage" id="Radio2" value="SL7 70mm" /><em>110/120 V AC</em>
+                                </div>
+                                <div class="appFullWidthFormFieldContainer clearfix">
+                                    <label for="rdioDiameter70mm">&nbsp;</label><em>*</em>
+                                    <input type="radio" name="Voltage" id="Radio5" value="SL7 70mm" /><em>230/240 V AC</em>
+                                </div>
+                            </fieldset>
+                        </div>
+                        <div class="top border">
+                            <fieldset>
+                                <legend>Base Components:</legend>
+                                <div>
+                                    <div class="box">
+                                        <img id="IMAGE1" src="img/ComponentImages/Image1.png" alt="image1" title="Base Component 1" iscopy="false" data-itemid="34" />
+                                    </div>
+                                    <div class="box">
+                                        <img id="IMAGE2" src="img/ComponentImages/Image2.png" alt="image2" title="Base Component 2" iscopy="false" data-itemid="36"/>
+                                    </div>
+                                    <div class="box">
+                                        <img id="IMAGE3" src="img/ComponentImages/Image3.png" alt="image3" title="Base Component 2" iscopy="false" data-itemid="36" />
+                                    </div>
+                                    <div class="box">
+                                        <img id="IMAGE4" src="img/ComponentImages/Image2.png" alt="image4" title="Base Component 2" iscopy="false" data-itemid="36" />
+                                    </div>
+                                    <div class="box">
+                                        <img id="IMAGE5" src="img/ComponentImages/Image2.png" alt="image5" title="Base Component 2" iscopy="false" data-itemid="36" />
+                                    </div>
+                                    <div class="box">
+                                        <img id="IMAGE6" src="img/ComponentImages/Image2.png" alt="image6" title="Base Component 2" iscopy="false" data-itemid="36" />
+                                    </div>
+                                    <div class="box">
+                                        <img id="IMAGE7" src="img/ComponentImages/Image2.png" alt="image7" iscopy="false" />
+                                    </div>
+                                </div>
+                                <!--<div>
+                                    <div class="box">XX</div>
+                                    <div class="box">XX</div>
+                                    <div class="box">XX</div>
+                                    <div class="box">XX</div>
+                                    <div class="box"></div>
+                                    <div class="box"></div>
+                                    <div class="box"></div>
+                                </div>-->
+                            </fieldset>
+                        </div>
+                        <div class="top border">
+                            <div>
+                                    <div class="box">XX</div>
+                                    <div class="box">XX</div>
+                                    <div class="box">XX</div>
+                                    <div class="box">XX</div>
+                                    <div class="box"></div>
+                                    <div class="box"></div>
+                                    <div class="box"></div>
+                                </div>
+                        </div>
+                    </div>
+                </td>
+                <td style="vertical-align:top;width: 376px;">
+                    <div class="solutionDesignerDiv">
+                        xx
+                    </div>
+                </td>
+                <td style="vertical-align:top">
+                    <div class="solutionOverViewDiv" style="width: 250px;background-color: #fffccc;height:250px;">
+                        cc
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
+    <script src="js/plugins.js"></script>
+    <script src="js/main.js"></script>
+</body>
+<script type="text/javascript">
+    $(function () {
+        var uiObject;
+        //load the jq tooltip plugin
+        $(document).tooltip();
+
+        //Create the trash area
+        $(".solutionOverViewDiv").droppable({
+            drop: function (event, ui) {
+                var drop = $(ui.draggable);
+                var tt = drop.attr("iscopy");
+                if (tt === "false") return;
+                drop.remove();
+            }
+        });
+
+        //create the drop area
+        $(".solutionDesignerDiv").droppable({
+            drop: function (event, ui) {
+                var drop = $(ui.draggable).clone();
+                var tt = drop.attr("iscopy");
+                var dataitemid = drop.attr("data-itemid");
+                console.log('dt id' + dataitemid);
+                if (tt === "false") {
+                    $(".solutionOverViewDiv").html(dataitemid);
+                    drop.attr("iscopy", true);
+                    drop.removeAttr("title");
+                    $(drop).draggable({ revert: function (event, ui) { $(this).data("uiDraggable").originalPosition = { top: 0,left: 0}; return !event; }});
+                    $(this).append(drop);
+                }
+            }, out: function (event, ui) { //we can handle when a user drags an item out of the builder block
+                uiObject = ui;
+                console.log(uiObject);
+                console.log(uiObject.ID);
+                console.log("item set");
+            }
+        });
+
+        //create the origional draggables
+        //We create copies as we want the origionals to remain but disable them
+        //Need disabled status images
+        $("#IMAGE1,#IMAGE2,#IMAGE3,#IMAGE4,#IMAGE5,#IMAGE6,#IMAGE7").draggable({
+            helper: 'clone', revert: function (event, ui) { return !event; }
+        });
+    });
+</script>
+</html>
+
+<end node> 5P9i0s8y19Z
+dt=Text
+<node>
+JQuery / JavaScript Write and Get a Cookie Value
+3
+function setCookie(key, value) {
+            var expires = new Date();
+            expires.setTime(expires.getTime() + (1 * 24 * 60 * 60 * 1000));
+            document.cookie = key + '=' + value + ';expires=' + expires.toUTCString();
+        }
+
+        function getCookie(key) {
+            var keyValue = document.cookie.match('(^|;) ?' + key + '=([^;]*)(;|$)');
+            return keyValue ? keyValue[2] : null;
+        }
+
+<end node> 5P9i0s8y19Z
+dt=Text
+<node>
+JQuery Options in i.e: 7/8
+3
+
+up vote
+61
+down vote
+I agree Ashish, this did NOT work in IE8 (yet did in FF):
+
+$("#selectList").append(new Option("option text", "value"));
+This DID work:
+
+var o = new Option("option text", "value");
+/// jquerify the DOM object 'o' so we can use the html method
+$(o).html("option text");
+$("#selectList").append(o);
+
+<end node> 5P9i0s8y19Z
+dt=Text
+<node>
+MS DOS Snippets
+2
+dir /A: -D /B /S > List.txt Directory listing to file.
+
+
+
+set PATH=%PATH%;C:\Python27
+
+<end node> 5P9i0s8y19Z
+dt=Text
+<node>
+SQL TIPS
+2
+//Get All Stored Procedures in a database.
+
+SELECT name
+FROM sys.procedures
+WHERE is_ms_shipped = 0
+ORDER BY name
+
+
+//Get Host Name of Machine Calling a Stored Procedure
+Declare @Host char(100)
+Select @Host = Host_Name()
+INSERT INTO [BOE_SSF].[dbo].[tblHost]
+           ([val])
+     VALUES
+           (@Host)
+
+
+
+
+
+
+-- ================================================
+-- Template generated from Template Explorer using:
+-- Create Procedure (New Menu).SQL
+--
+-- Use the Specify Values for Template Parameters 
+-- command (Ctrl-Shift-M) to fill in the parameter 
+-- values below.
+--
+-- This block of comments will not be included in
+-- the definition of the procedure.
+-- ================================================
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		Laird Streak
+-- Create date: 02/05/2013
+-- Description:	Will return a Variable to Calling window if the document needs to be gated.
+-- =============================================
+ALTER PROCEDURE G_IsGatewayDoc
+	@countryId int,
+	@Lit_Doc_Name nvarchar(250) = null,
+	@Lit_Doc_ID int = null
+AS
+BEGIN
+	DECLARE @IsGatewayDoc nvarchar(200)
+	DECLARE @ISEMEA int = null
+	DECLARE @ISWHITEPAPER int = 0
+	DECLARE @code varchar(5)
+	--STEP1 We Check Is AMEA
+	--A: Create table get countries
+	CREATE TABLE #countrylist (countryid int, countryName nvarchar(500))  
+    INSERT INTO #countrylist exec [pq_product].[dbo].[g_regionProd_countryList] -100, null, 231  
+    SET @ISEMEA = (Select COUNT(*) from #countrylist where countryId = @countryId)  
+    DROP TABLE #countrylist  
+	--STEP 2 DETERMINE IF THIS IS A WHITEPAPER
+	--
+	CREATE TABLE #RESULTSET (RESULTITEM int)
+	IF @Lit_Doc_Name is NULL
+		BEGIN
+		 INSERT INTO #RESULTSET EXEC G_LitDocsIsWhitePaperByDocumentID @Lit_Doc_ID
+		 SET @code = 'BYID'
+		END
+	ELSE
+	    BEGIN
+			INSERT INTO #RESULTSET EXEC G_LitDocsIsWhitePaper @Lit_Doc_Name
+			SET @code = 'BYDC'
+	    END 
+		
+	SET @ISWHITEPAPER = (SELECT [RESULTITEM] FROM #RESULTSET)
+	DROP TABLE #RESULTSET
+	--STEP 3 DETERMINE IF BOTH ARE 1
+	If @ISEMEA = 1 AND @ISWHITEPAPER = 1 
+	   BEGIN 
+		SET @IsGatewayDoc = '&ISG=1'
+	   END	
+	Else
+		SET @IsGatewayDoc = ''
+		
+		
+		
+		SELECT @IsGatewayDoc AS IsGatewayDoc
+END
+GO
+
+<end node> 5P9i0s8y19Z
+dt=Text
+<node>
+Find In Stored Procedures
+3
+
+SELECT OBJECT_NAME(id) 
+    FROM syscomments 
+    WHERE [text] LIKE '%BOE.co.za%' 
+    AND OBJECTPROPERTY(id, 'IsProcedure') = 1 
+   
+    GROUP BY OBJECT_NAME(id)
+
+
+SELECT t.name AS table_name,
+SCHEMA_NAME(schema_id) AS schema_name,
+c.name AS column_name
+FROM sys.tables AS t
+INNER JOIN sys.columns c ON t.OBJECT_ID = c.OBJECT_ID
+WHERE c.name LIKE '%email%'
+ORDER BY schema_name, table_name;
+
+
+
+--sp_msforeachdb 'use ? SELECT OBJECT_NAME(id), db_name() 
+--    FROM syscomments 
+--    WHERE [text] LIKE ''%V5GL_www_order_glrej%'' 
+--    AND OBJECTPROPERTY(id, ''IsProcedure'') = 1 
+--    GROUP BY OBJECT_NAME(id)'
+
+<end node> 5P9i0s8y19Z
+dt=Text
+<node>
+Find in Database Tables
+3
+DECLARE @SearchStr nvarchar(100)
+SET @SearchStr = '## YOUR STRING HERE ##'
+
+
+    -- Copyright © 2002 Narayana Vyas Kondreddi. All rights reserved.
+    -- Purpose: To search all columns of all tables for a given search string
+    -- Written by: Narayana Vyas Kondreddi
+    -- Site: http://vyaskn.tripod.com
+    -- Updated and tested by Tim Gaunt
+    -- http://www.thesitedoctor.co.uk
+    -- http://blogs.thesitedoctor.co.uk/tim/2010/02/19/Search+Every+Table+And+Field+In+A+SQL+Server+Database+Updated.aspx
+    -- Tested on: SQL Server 7.0, SQL Server 2000, SQL Server 2005 and SQL Server 2010
+    -- Date modified: 03rd March 2011 19:00 GMT
+    CREATE TABLE #Results (ColumnName nvarchar(370), ColumnValue nvarchar(3630))
+
+    SET NOCOUNT ON
+
+    DECLARE @TableName nvarchar(256), @ColumnName nvarchar(128), @SearchStr2 nvarchar(110)
+    SET  @TableName = ''
+    SET @SearchStr2 = QUOTENAME('%' + @SearchStr + '%','''')
+
+    WHILE @TableName IS NOT NULL
+    
+    BEGIN
+        SET @ColumnName = ''
+        SET @TableName = 
+        (
+            SELECT MIN(QUOTENAME(TABLE_SCHEMA) + '.' + QUOTENAME(TABLE_NAME))
+            FROM     INFORMATION_SCHEMA.TABLES
+            WHERE         TABLE_TYPE = 'BASE TABLE'
+                AND    QUOTENAME(TABLE_SCHEMA) + '.' + QUOTENAME(TABLE_NAME) > @TableName
+                AND    OBJECTPROPERTY(
+                        OBJECT_ID(
+                            QUOTENAME(TABLE_SCHEMA) + '.' + QUOTENAME(TABLE_NAME)
+                             ), 'IsMSShipped'
+                               ) = 0
+        )
+
+        WHILE (@TableName IS NOT NULL) AND (@ColumnName IS NOT NULL)
+            
+        BEGIN
+            SET @ColumnName =
+            (
+                SELECT MIN(QUOTENAME(COLUMN_NAME))
+                FROM     INFORMATION_SCHEMA.COLUMNS
+                WHERE         TABLE_SCHEMA    = PARSENAME(@TableName, 2)
+                    AND    TABLE_NAME    = PARSENAME(@TableName, 1)
+                    AND    DATA_TYPE IN ('char', 'varchar', 'nchar', 'nvarchar', 'int', 'decimal')
+                    AND    QUOTENAME(COLUMN_NAME) > @ColumnName
+            )
+    
+            IF @ColumnName IS NOT NULL
+            
+            BEGIN
+                INSERT INTO #Results
+                EXEC
+                (
+                    'SELECT ''' + @TableName + '.' + @ColumnName + ''', LEFT(' + @ColumnName + ', 3630) FROM ' + @TableName + ' (NOLOCK) ' +
+                    ' WHERE ' + @ColumnName + ' LIKE ' + @SearchStr2
+                )
+            END
+        END    
+    END
+
+    SELECT ColumnName, ColumnValue FROM #Results
+
+DROP TABLE #Results
+
+<end node> 5P9i0s8y19Z
+dt=Text
+<node>
+OpenRowsetLinkedQuery
+3
+Select A.* From OPENROWSET('MSDASQL', 'DRIVER={SQL SERVER};SERVER=216.27.17.206;UID=labelUser;PWD=wd5zt88c',
+'SELECT * FROM [PW_Labels].[dbo].[Labels]') AS A --Where A.MaintenanceDate <> MaintenanceDate
+
+Msg 15281, Level 16, State 1, Line 1
+SQL Server blocked access to STATEMENT 'OpenRowset/OpenDatasource' of component 'Ad Hoc Distributed Queries' because this component is turned off as part of the security configuration for this server. A system administrator can enable the use of 'Ad Hoc Distributed Queries' by using sp_configure. For more information about enabling 'Ad Hoc Distributed Queries', see "Surface Area Configuration" in SQL Server Books Online.
+
+<end node> 5P9i0s8y19Z
+dt=Text
+<node>
+Null Select
+3
+	left outer join Country c on c.CountryID = b.Country
+	WHERE
+	    c.CountryAbbrev = @CountryAbbrev
+	    and (b.BlackoutDate >= @StartDate OR @StartDate IS NULL)
+	    and (b.BlackoutDate <= @EndDate OR @EndDate IS NULL)
+		ORDER BY b.BlackoutID DESC
+
+<end node> 5P9i0s8y19Z
+dt=Text
+<node>
+Insert Into + Identity Snippet
+3
+Just discovered something very useful that is new to me, and thought it may be useful to you guys.
+http://technet.microsoft.com/en-us/library/ms177564.aspx
+
+Basically I wanted to be able to get all the newly created PK Id's from a Bulk Import, so I could use them and create some associated records.  I found a very neat way to do this.
+
+declare @NewIds table (MyNewId INT);
+      
+Insert into Table1(Col1, Col2)
+output INSERTED.PK Into @NewIds(MyNewID)
+Select Col1, Col2
+From Table2
+    
+SELECT * FROM @NewIds -- Loop through newly created PK Id's and do your thing…
+
+This works for Inserts (Output.INSERTED), Updates, and Deletes (Output.DELETED) etc.
+
+<end node> 5P9i0s8y19Z
+dt=Text
+<node>
+PW_Quest Re-Ordering Answers
+3
+Select * from Quest_Questionaires
+where Quest_Questionaire_ID = 1244
+
+Select * from Quest_Question where Quest_Q_ID = 4534
+
+Select * from Quest_Answer where Quest_Q_ID = 4534 order by Quest_A_Order ASC
+
+begin transaction
+
+--update Quest_Answer SET Quest_A_Order = Quest_A_Order + 1 WHERE Quest_Q_ID = 4534 and Quest_A_Order > 5
+update Quest_Answer set Quest_A_Order = 6 WHERE Quest_Q_ID = 4534 and Quest_A_ID = 17839
+
+commit;
+
+<end node> 5P9i0s8y19Z
+dt=Text
+<node>
+Find Field In DB Tables
+3
+use databasename;
+
+
+SELECT t.name AS table_name,
+SCHEMA_NAME(schema_id) AS schema_name,
+c.name AS column_name
+FROM sys.tables AS t
+INNER JOIN sys.columns c ON t.OBJECT_ID = c.OBJECT_ID
+WHERE c.name LIKE '%source%'
+ORDER BY schema_name, table_name;
+
+<end node> 5P9i0s8y19Z
+dt=Text
+<node>
+Shrink DB
+3
+DBCC SHRINKDATABASE (Name of DB to Shrink);
+GO
+
+<end node> 5P9i0s8y19Z
+dt=Text
+<node>
+xp_cmdshell Enable
+3
+Use Master
+GO
+
+EXEC master.dbo.sp_configure 'show advanced options', 1
+RECONFIGURE WITH OVERRIDE
+GO
+
+EXEC master.dbo.sp_configure 'xp_cmdshell', 1
+RECONFIGURE WITH OVERRIDE
+GO
+
+<end node> 5P9i0s8y19Z
+dt=Text
+<node>
+xp_cmdshell Disable
+3
+Use Master
+GO
+
+EXEC master.dbo.sp_configure 'xp_cmdshell', 0
+RECONFIGURE WITH OVERRIDE
+GO
+
+EXEC master.dbo.sp_configure 'show advanced options', 0
+RECONFIGURE WITH OVERRIDE
+GO
+
+<end node> 5P9i0s8y19Z
+dt=Text
+<node>
+MVC
+2
+<end node> 5P9i0s8y19Z
+dt=Text
+<node>
+DropdownList Template
+3
+@model DigitalWarranty.ExtensionsAndUtils.ViewModels.CreateDigitalWarrantyModel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>CreateDigitalWarrantyModel</legend>
+
+        @*<div class="editor-label">
+            @Html.LabelFor(model => model.SelectedWarrantPartID)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.SelectedWarrantPartID)
+            @Html.ValidationMessageFor(model => model.SelectedWarrantPartID)
+        </div>*@
+
+        @Html.DropDownListFor(x => x.SelectedWarrantPartID,new SelectList(Model.DigitalWarrantParts,"Value","Text"),"--Select Warrant Part--")
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+<end node> 5P9i0s8y19Z
+dt=Text
+<node>
+Find Root to Website Path
+3
+When you're doing AJAX Calls on sites that have "IIS Application Sites" in them (like eg.eaton.com and applications.eaton.eu (or whatever that url is)) then you are going to run into issues with get the correct "Base Url" of the site.
+
+Just doing something like this:
+var url = "/Home/MyAction" 
+Will work fine on localhost, but will fail on eg.eaton.com/MyApp/ (you'll just get eg.eaton.com rather than eg.eaton.com/MyApp/
+
+To correct this I have created the following helper method (Javascript)
+
+function GetSiteBaseUrl(pageUrl) {
+   return (@Html.Raw(HttpUtility.JavaScriptStringEncode(Url.Content("~/"), true)) + pageUrl).replace("//", "/");
+}
+
+Your code will now look like this and work in all types of deployment environments
+var url = GetSiteBaseUrl("/Home/MyAction") 
+
+<end node> 5P9i0s8y19Z
+dt=Text
+<node>
+Dont Validate Http Request
+3
+[HttpPost]
+[ValidateInput(false)]
+public ActionResult index()
+{
+}
+
+http://stackoverflow.com/questions/7468900/validaterequest-in-razor-syntax
+
+<end node> 5P9i0s8y19Z
+dt=Text
+<node>
+BCP Examples
+2
+Error = [Microsoft][SQL Server Native Client 10.0][SQL Server]Invalid object nam
+e 'pq_product.g_registration_data'.
+
+C:\Users\laird>bcp [pq_product].[g_registration_data] queryout "C\temp.tx" -U ww
+wPassport -P mn3yft$#4Q -S 216.27.17.222
+SQLState = 37000, NativeError = 102
+Error = [Microsoft][SQL Server Native Client 10.0][SQL Server]Incorrect syntax n
+ear 'pq_product'.
+
+C:\Users\laird>bcp [pq_product].[dbo].[g_registration_data] queryout "C\temp.tx"
+ -U wwwPassport -P mn3yft$#4Q -S 216.27.17.222
+SQLState = 37000, NativeError = 102
+Error = [Microsoft][SQL Server Native Client 10.0][SQL Server]Incorrect syntax n
+ear 'pq_product'.
+
+C:\Users\laird>bcp "exec g_registration_data" queryout "C\temp.tx" -U wwwPasspor
+t -P mn3yft$#4Q -S 216.27.17.222
+SQLState = 37000, NativeError = 2812
+Error = [Microsoft][SQL Server Native Client 10.0][SQL Server]Could not find sto
+red procedure 'g_registration_data'.
+
+C:\Users\laird>bcp "exec [pq_product].[dbo].[g_registration_data]" queryout "C\t
+emp.tx" -U wwwPassport -P mn3yft$#4Q -S 216.27.17.222
+SQLState = S1000, NativeError = 0
+Error = [Microsoft][SQL Server Native Client 10.0]Unable to open BCP host data-f
+ile
+
+C:\Users\laird>bcp "exec [pq_product].[dbo].[g_registration_data]" queryout "C:\
+temp.csv" -U wwwPassport -P mn3yft$#4Q -S 216.27.17.222
+
+Enter the file storage type of field registration_id [int]: 1
+
+Invalid column type. Valid types are:
+        <cr>: same type as DataServer column.
+        c : char
+        T : text
+        i : int
+        s : smallint
+        t : tinyint
+        f : float
+        m : money
+        b : bit
+        d : datetime
+        x : binary
+        I : image
+        D : smalldatetime
+        r : real
+        M : smallmoney
+        n : numeric
+        e : decimal
+        w : nchar
+        W : ntext
+        u : uniqueidentifier
+        B : bigint
+        V : sql_variant
+        U : udt
+        de : date
+        te : time
+        d2 : datetime2
+        do : datetimeoffset
+
+Try again:
+
+Enter the file storage type of field registration_id [int]: i
+Enter prefix-length of field registration_id [0]: d
+
+Invalid prefix length. Valid prefix-lengths are 0, 1, 2, 4 or 8.
+
+Try again:
+Enter prefix-length of field registration_id [0]:
+Enter field terminator [none]:
+
+Enter the file storage type of field country_id [int]:
+Enter prefix-length of field country_id [0]:
+Enter field terminator [none]:
+
+Enter the file storage type of field customer_id [uniqueidentifier]:
+Enter prefix-length of field customer_id [1]:
+Enter field terminator [none]:
+
+Enter the file storage type of field customer_email [nvarchar]:
+Enter prefix-length of field customer_email [2]:
+Enter field terminator [none]:
+
+Enter the file storage type of field registered_by_id [uniqueidentifier]:
+Enter prefix-length of field registered_by_id [1]:
+Enter field terminator [none]:
+
+Enter the file storage type of field registered_by_email [nvarchar]:
+Enter prefix-length of field registered_by_email [2]:
+Enter field terminator [none]:
+
+Enter the file storage type of field product_family_id [int-null]:
+Enter prefix-length of field product_family_id [1]:
+Enter field terminator [none]:
+
+Enter the file storage type of field product_family_name [nvarchar]:
+Enter prefix-length of field product_family_name [2]:
+Enter field terminator [none]:
+
+Enter the file storage type of field product_id [int]:
+Enter prefix-length of field product_id [0]:
+Enter field terminator [none]:
+
+Enter the file storage type of field product_name [nvarchar]:
+Enter prefix-length of field product_name [2]:
+Enter field terminator [none]:
+
+Enter the file storage type of field serial_number [nvarchar]:
+Enter prefix-length of field serial_number [2]:
+Enter field terminator [none]:
+
+Enter the file storage type of field date_registered [char]:
+Enter prefix-length of field date_registered [2]:
+Enter field terminator [none]:
+
+Enter the file storage type of field date_purchased [char]:
+Enter prefix-length of field date_purchased [2]:
+Enter field terminator [none]:
+
+Enter the file storage type of field registration_date_modified [char]:
+Enter prefix-length of field registration_date_modified [2]:
+Enter field terminator [none]:
+
+Enter the file storage type of field address_id [int-null]:
+Enter prefix-length of field address_id [1]:
+Enter field terminator [none]:
+
+Enter the file storage type of field country [nvarchar]:
+Enter prefix-length of field country [2]:
+Enter field terminator [none]:
+
+Enter the file storage type of field location_name [nvarchar(max)]:
+Enter prefix-length of field location_name [8]:
+Enter field terminator [none]:
+
+Enter the file storage type of field town [nvarchar(max)]:
+Enter prefix-length of field town [8]:
+Enter field terminator [none]:
+
+Enter the file storage type of field zip_code [nvarchar(max)]:
+Enter prefix-length of field zip_code [8]:
+Enter field terminator [none]:
+
+Enter the file storage type of field address_line_1 [nvarchar(max)]:
+Enter prefix-length of field address_line_1 [8]:
+Enter field terminator [none]:
+
+Enter the file storage type of field address_line_2 [nvarchar(max)]:
+Enter prefix-length of field address_line_2 [8]:
+Enter field terminator [none]:
+
+Enter the file storage type of field phone_number [nvarchar(max)]:
+Enter prefix-length of field phone_number [8]:
+Enter field terminator [none]:
+
+Enter the file storage type of field reseller_area [nvarchar]:
+Enter prefix-length of field reseller_area [2]:
+Enter field terminator [none]:
+
+Enter the file storage type of field reseller_id [int-null]:
+Enter prefix-length of field reseller_id [1]:
+Enter field terminator [none]:
+
+Enter the file storage type of field reseller_name [nvarchar]:
+Enter prefix-length of field reseller_name [2]:
+Enter field terminator [none]:
+
+Enter the file storage type of field service_name [nvarchar]:
+Enter prefix-length of field service_name [2]:
+Enter field terminator [none]:
+
+Enter the file storage type of field service_number [nvarchar]:
+Enter prefix-length of field service_number [2]:
+Enter field terminator [none]:
+
+Enter the file storage type of field start_date [char]:
+Enter prefix-length of field start_date [2]:
+Enter field terminator [none]:
+
+Enter the file storage type of field end_date [char]:
+Enter prefix-length of field end_date [2]:
+Enter field terminator [none]:
+
+Enter the file storage type of field service_date_modified [char]:
+Enter prefix-length of field service_date_modified [2]:
+Enter field terminator [none]:
+
+Do you want to save this format information in a file? [Y/n]
+Host filename [bcp.fmt]:
+
+Starting copy...
+1000 rows successfully bulk-copied to host-file. Total received: 1000
+1000 rows successfully bulk-copied to host-file. Total received: 2000
+1000 rows successfully bulk-copied to host-file. Total received: 3000
+1000 rows successfully bulk-copied to host-file. Total received: 4000
+1000 rows successfully bulk-copied to host-file. Total received: 5000
+1000 rows successfully bulk-copied to host-file. Total received: 6000
+1000 rows successfully bulk-copied to host-file. Total received: 7000
+1000 rows successfully bulk-copied to host-file. Total received: 8000
+1000 rows successfully bulk-copied to host-file. Total received: 9000
+1000 rows successfully bulk-copied to host-file. Total received: 10000
+1000 rows successfully bulk-copied to host-file. Total received: 11000
+1000 rows successfully bulk-copied to host-file. Total received: 12000
+1000 rows successfully bulk-copied to host-file. Total received: 13000
+1000 rows successfully bulk-copied to host-file. Total received: 14000
+1000 rows successfully bulk-copied to host-file. Total received: 15000
+1000 rows successfully bulk-copied to host-file. Total received: 16000
+1000 rows successfully bulk-copied to host-file. Total received: 17000
+1000 rows successfully bulk-copied to host-file. Total received: 18000
+1000 rows successfully bulk-copied to host-file. Total received: 19000
+1000 rows successfully bulk-copied to host-file. Total received: 20000
+1000 rows successfully bulk-copied to host-file. Total received: 21000
+1000 rows successfully bulk-copied to host-file. Total received: 22000
+1000 rows successfully bulk-copied to host-file. Total received: 23000
+1000 rows successfully bulk-copied to host-file. Total received: 24000
+1000 rows successfully bulk-copied to host-file. Total received: 25000
+1000 rows successfully bulk-copied to host-file. Total received: 26000
+1000 rows successfully bulk-copied to host-file. Total received: 27000
+1000 rows successfully bulk-copied to host-file. Total received: 28000
+1000 rows successfully bulk-copied to host-file. Total received: 29000
+1000 rows successfully bulk-copied to host-file. Total received: 30000
+1000 rows successfully bulk-copied to host-file. Total received: 31000
+1000 rows successfully bulk-copied to host-file. Total received: 32000
+1000 rows successfully bulk-copied to host-file. Total received: 33000
+1000 rows successfully bulk-copied to host-file. Total received: 34000
+1000 rows successfully bulk-copied to host-file. Total received: 35000
+1000 rows successfully bulk-copied to host-file. Total received: 36000
+1000 rows successfully bulk-copied to host-file. Total received: 37000
+1000 rows successfully bulk-copied to host-file. Total received: 38000
+1000 rows successfully bulk-copied to host-file. Total received: 39000
+1000 rows successfully bulk-copied to host-file. Total received: 40000
+1000 rows successfully bulk-copied to host-file. Total received: 41000
+1000 rows successfully bulk-copied to host-file. Total received: 42000
+1000 rows successfully bulk-copied to host-file. Total received: 43000
+1000 rows successfully bulk-copied to host-file. Total received: 44000
+1000 rows successfully bulk-copied to host-file. Total received: 45000
+1000 rows successfully bulk-copied to host-file. Total received: 46000
+
+46672 rows copied.
+Network packet size (bytes): 4096
+Clock Time (ms.) Total     : 24165  Average : (1931.39 rows per sec.)
+
+C:\Users\laird>
+C:\Users\laird>bcp "exec [pq_product].[dbo].[g_registration_data]" queryout "C:\
+temp.csv" -c -t, -U wwwPassport -P mn3yft$#4Q -S 216.27.17.222
+
+Starting copy...
+1000 rows successfully bulk-copied to host-file. Total received: 1000
+1000 rows successfully bulk-copied to host-file. Total received: 2000
+1000 rows successfully bulk-copied to host-file. Total received: 3000
+1000 rows successfully bulk-copied to host-file. Total received: 4000
+1000 rows successfully bulk-copied to host-file. Total received: 5000
+1000 rows successfully bulk-copied to host-file. Total received: 6000
+1000 rows successfully bulk-copied to host-file. Total received: 7000
+1000 rows successfully bulk-copied to host-file. Total received: 8000
+1000 rows successfully bulk-copied to host-file. Total received: 9000
+1000 rows successfully bulk-copied to host-file. Total received: 10000
+1000 rows successfully bulk-copied to host-file. Total received: 11000
+1000 rows successfully bulk-copied to host-file. Total received: 12000
+1000 rows successfully bulk-copied to host-file. Total received: 13000
+1000 rows successfully bulk-copied to host-file. Total received: 14000
+1000 rows successfully bulk-copied to host-file. Total received: 15000
+1000 rows successfully bulk-copied to host-file. Total received: 16000
+1000 rows successfully bulk-copied to host-file. Total received: 17000
+1000 rows successfully bulk-copied to host-file. Total received: 18000
+1000 rows successfully bulk-copied to host-file. Total received: 19000
+1000 rows successfully bulk-copied to host-file. Total received: 20000
+1000 rows successfully bulk-copied to host-file. Total received: 21000
+1000 rows successfully bulk-copied to host-file. Total received: 22000
+1000 rows successfully bulk-copied to host-file. Total received: 23000
+1000 rows successfully bulk-copied to host-file. Total received: 24000
+1000 rows successfully bulk-copied to host-file. Total received: 25000
+1000 rows successfully bulk-copied to host-file. Total received: 26000
+1000 rows successfully bulk-copied to host-file. Total received: 27000
+1000 rows successfully bulk-copied to host-file. Total received: 28000
+1000 rows successfully bulk-copied to host-file. Total received: 29000
+1000 rows successfully bulk-copied to host-file. Total received: 30000
+1000 rows successfully bulk-copied to host-file. Total received: 31000
+1000 rows successfully bulk-copied to host-file. Total received: 32000
+1000 rows successfully bulk-copied to host-file. Total received: 33000
+1000 rows successfully bulk-copied to host-file. Total received: 34000
+1000 rows successfully bulk-copied to host-file. Total received: 35000
+1000 rows successfully bulk-copied to host-file. Total received: 36000
+1000 rows successfully bulk-copied to host-file. Total received: 37000
+1000 rows successfully bulk-copied to host-file. Total received: 38000
+1000 rows successfully bulk-copied to host-file. Total received: 39000
+1000 rows successfully bulk-copied to host-file. Total received: 40000
+1000 rows successfully bulk-copied to host-file. Total received: 41000
+1000 rows successfully bulk-copied to host-file. Total received: 42000
+1000 rows successfully bulk-copied to host-file. Total received: 43000
+1000 rows successfully bulk-copied to host-file. Total received: 44000
+1000 rows successfully bulk-copied to host-file. Total received: 45000
+1000 rows successfully bulk-copied to host-file. Total received: 46000
+
+46672 rows copied.
+Network packet size (bytes): 4096
+Clock Time (ms.) Total     : 13369  Average : (3491.06 rows per sec.)
+
+C:\Users\laird>
+
+
+prod server bcp cmd
+
+Microsoft Windows [Version 5.2.3790]
+(C) Copyright 1985-2003 Microsoft Corp.
+
+C:\Documents and Settings\montage3>bcp "exec [pq_product].[dbo].[g_registration_
+data]" queryout "C:\temp.csv" -c -t, -U wwwPassport -P mn3yft$#4Q -S 216.27.17.2
+22
+SQLState = 08001, NativeError = 14
+Error = [Microsoft][ODBC SQL Server Driver][DBNETLIB]Invalid connection.
+SQLState = 01000, NativeError = 14
+Warning = [Microsoft][ODBC SQL Server Driver][DBNETLIB]ConnectionOpen (Invalid I
+nstance()).
+
+C:\Documents and Settings\montage3>bcp "exec [pq_product].[dbo].[g_registration_
+data]" queryout "C:\temp.csv" -c -t, -U wwwPassport -P mn3yft$#4Q -S sql1.montag
+e_sql.montage.co.nz
+
+Starting copy...
+
+40 rows copied.
+Network packet size (bytes): 4096
+Clock Time (ms.): total     1203
+
+C:\Documents and Settings\montage3>
+
+<end node> 5P9i0s8y19Z
+dt=Text
+<node>
+Knockoutjs
+2
+https://groups.google.com/forum/#!topic/knockoutjs/TZBj_skVYqw
+
+
+var ViewModel = function(data) {
+    var self = this;
+    self.filters = ko.observableArray(data.filters);
+    self.filter = ko.observable('');
+    self.items = ko.observableArray(data.items);
+    self.filteredItems = ko.computed(function() {
+        var filter = self.filter();
+        if (!filter || filter == "None") {
+            return self.items();
+        } else {
+            return ko.utils.arrayFilter(self.items(), function(i) {
+                return i.type == filter;
+            });
+        }
+    });
+};
+
+
+var initialData = {
+    filters: ["None", "Old", "New", "Super"],
+    items: [{ name: "Corvette", type: "Old"},
+           { name: "Charger", type: "Old"},
+           { name: "Prius", type: "New"},
+           { name: "Magnum", type: "New"},
+           { name: "McLaren", type: "Super"},
+           { name: "Saleen", type: "Super"}]
+};
+
+ko.applyBindings(new ViewModel(initialData));
+
+<end node> 5P9i0s8y19Z
+dt=Text
+<node>
+HTML TIPS
+2
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>SignalTowerMain</title>
+</head>
+<body>
+    <div>
+        
+    </div>
+</body>
+</html>
+
+<end node> 5P9i0s8y19Z
+dt=Text
+<node>
+Google
+2
+<end node> 5P9i0s8y19Z
+dt=Text
+<node>
+Send Mail with Gmail
+3
+//gmMailSender.gmailEmailSend("MIGMSMTP@gmail.com", "laird.streak@montageinteractive.com",
+                //                            "MIEMEAProductRegistrationFTPImport", mailAuditCollection, true,
+                //                            "MIGMSMTP@gmail.com", "3JvXlXq8Xgn5haSZfLYu");
+                //
+
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Net;
+using System.Net.Mail;
+
+
+namespace MIEMEAProductRegistrationFTPImport
+{
+    class gmMailSender
+    {
+        public static bool gmailEmailSend( string fromEmailAddress, string toEmailMailAddress,
+            string mailSubject, List <string> messageparts,
+            bool isHtml, string networkCredentialUserName, string networkCredentialPassWord)
+        {
+            try
+            {
+                MailMessage mail = new MailMessage();
+                SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com" );
+                mail.From = new MailAddress(fromEmailAddress);
+                mail.To.Add(toEmailMailAddress);
+                mail.Subject = mailSubject;
+                mail.Body = buildBodyFromMessageParts(messageparts);
+                mail.IsBodyHtml = (isHtml) ? true : false ;
+                SmtpServer.Port = 587;
+                SmtpServer.Credentials = new System.Net.NetworkCredential(networkCredentialUserName, networkCredentialPassWord);
+                SmtpServer.EnableSsl = true;
+                SmtpServer.Send(mail);
+                return true ;
+            }
+            catch (Exception )
+            {
+                return false ;
+
+            }
+        }
+
+
+        private static string buildBodyFromMessageParts( List<string > messageparts)
+        {
+            StringBuilder oStringBuilder = new StringBuilder();
+            foreach (string messagepart in messageparts)
+            {
+                oStringBuilder.Append(messagepart + @"<br />");
+            }
+            return oStringBuilder.ToString();
+        }
+    }
+}
+
+<end node> 5P9i0s8y19Z
+dt=Text
+<node>
+Dos Tricks
+2
+<end node> 5P9i0s8y19Z
+dt=Text
+<node>
+Change File attributes
+3
+attrib command
+
+<end node> 5P9i0s8y19Z
+dt=Text
+<node>
+To Learn
+2
+Extension methods
+Generics
+
+<end node> 5P9i0s8y19Z
+dt=Text
+<node>
+DBContextNotes
+2
+//Mark entity as modified
+        dbCtx.Entry(stud).State = System.Data.EntityState.Modified;    
+        dbCtx.SaveChanges();
+
+
+
+
+using (var dbCtx = new SchoolDBEntities())
+    {
+        //Add standard object into Standard DBset
+        dbCtx.Standards.Add(newStandard);
+        // call SaveChanges method to save standard into database
+        dbCtx.SaveChanges();
+    }
+
+
+SubmitButton
+
+<end node> 5P9i0s8y19Z
+dt=Text
+<node>
+Windows Service
+2
+using System.ServiceProcess;
+
+namespace AGL.LongRunningTaskProcessor
+{
+    static class Program
+    {
+        /// <summary>
+        /// The main entry point for the application.
+        /// </summary>
+        static void Main()
+        {
+
+#if DEBUG
+            var svc = new AglLongRunningTaskProcessor();
+            svc.OnDebug();
+            System.Threading.Thread.Sleep(System.Threading.Timeout.Infinite);
+#else
+            var servicesToRun = new ServiceBase[] 
+            { 
+                new AglLongRunningTaskProcessor()
+            };
+            ServiceBase.Run(servicesToRun);
+#endif
+        }
+    }
+}
+
+<end node> 5P9i0s8y19Z
+dt=Text
+<node>
+Powershell Tips
+2
+<end node> 5P9i0s8y19Z
+dt=Text
+<node>
+Set Desktop Background color
+3
+Set-ItemProperty 'HKCU:\Control Panel\Colors' -Name Background -Value "255 203 53 "
+
+<end node> 5P9i0s8y19Z
+dt=Text
+<node>
+Remove Files of Type Recursively
+3
+Get-ChildItem -Path . -Include *.bak -Recurse -Name -Force | Remove-Item -Force
+
+<end node> 5P9i0s8y19Z
+dt=Text
+<node>
+Setup Azure Commands
+3
+<end node> 5P9i0s8y19Z
+dt=Text
+<node>
+Virtual Box
+2
+dism.exe /Online /Disable-Feature:Microsoft-Hyper-V
+
+<end node> 5P9i0s8y19Z
+dt=Text
+<node>
+Wife Direct Line
+1
+38 c
+Oldmutual profile number: 57253503
+IRD: 111 393 095
+
+<end node> 5P9i0s8y19Z
+dt=Text
+<node>
+Personal Smalls
+1
+https://www.google.co.nz/search?q=QF207&ie=utf-8&oe=utf-8&rls=org.mozilla:en-US:official&client=firefox-a&channel=fflb
+"Pa55w0rd!" username = laird
+http://www.flickr.com/photos/clanstreak/
+
+
+yahoo rr1432love
+
+<end node> 5P9i0s8y19Z
+dt=Text
+<node>
+IRD Number
+2
+IRD: 111 393 095
+
+Grovenor customer number 458348
+
+Contatc center 0800 227 770
+
+SARS TAX Number: 1381491149
+
+
+
+Laird93
+grim93##
+
+<end node> 5P9i0s8y19Z
+dt=Text
+<node>
+My Cell
+2
+0279597570
+
+
+03 3545469
+
+
+telecom case number: 231173293110--
+
+231196081709
+
+
+302571864
+
+<end node> 5P9i0s8y19Z
+dt=Text
+<node>
+Reinnette
+2
+38 c
+
+<end node> 5P9i0s8y19Z
+dt=Text
+<node>
+Kiwisaver
+2
+Member Number : 458348
+Pass Reaper 93 hash hash
+
+<end node> 5P9i0s8y19Z
+dt=Text
+<node>
+Recipies
+1
+<end node> 5P9i0s8y19Z
+dt=Text
+<node>
+Pineapple Beer
+2
+Ingredients:
+
+Yield:
+1.5
+gallons Units: US | Metric
+1 pineapple
+1/2 cup raisins
+5 cups sugar
+2 teaspoons dry yeast
+1 1/2 gallons warm water (7 litres)
+Directions:
+
+1
+Discard pineapple stalk.
+2
+Wash unskinned pineapple well and chop up with skin and all.
+3
+Place all ingredients into a large container with a lid and stir to mix well. Cover and leave where it can be undisturbed.
+4
+The fermentation will start immediately. Stir twice a day over the next 72 hours. Don't worry - it is supposed to smell like fermented fruit! By the third day this smell will subside to a lovely beery, cidery smell.
+5
+Strain through a sieve or cheesecloth and bottle.
+
+Read more: <a href="http://www.food.com/recipe/pineapple-beer-441415?oc=linkback">http://www.food.com/recipe/pineapple-beer-441415?oc=linkback</a>
+
+<end node> 5P9i0s8y19Z
