@@ -16,10 +16,10 @@ CONSTFILENAME = 'dataset.csv'
 def main():
     """docstring"""
     plotHerbs()
-    # mustFetch = mustfetchapidata()
-    # print(mustFetch)
-    # if mustFetch:
-    #    fetchapidata()
+    #mustFetch = mustfetchapidata()
+    #print(mustFetch)
+    #if mustFetch:
+    #fetchapidata()
     # fetchapidata()
     # print(mustfetchapidata())
 
@@ -46,17 +46,18 @@ def plotHerbs():
     data = pd.read_csv(CONSTFILENAME, encoding='ISO-8859-1')
     dfHerbs = data.loc[(data["Class"] == "Tradeskill") & (data["SubClass"] == "Herb")]
 
-    for index, row in dfHerbs.iterrows():
-        lineData = "First argument: {0}, second one: {1}".format(row["Name"],row["Level"]) 
-        print(lineData)
+    #for index, row in dfHerbs.iterrows():
+    #    lineData = "First argument: {0}, second one: {1}".format(row["Name"],row["Level"]) 
+    #    print(lineData)
     #print(dfHerbs.head())
-    #data2 = data[["Id", "Name", "NumAuctions", "RegionSaleRate"]]
-    #data2.set_index("Id", inplace=True)
+    data2 = data[["Id", "Name", "MinBuyout"]]
+    data2.set_index("Id", inplace=True)
     #print(data2.head())
     # data.set_index("Id", inplace= True)
-    # data2.plot(x='Id',y='RegionSaleRate')
+    data2.plot.bar()
     # plt.plot(data2["RegionSaleRate"])
-    # plt.show()
+    #plt.bar(data2)
+    plt.show()
     # print(data.head())
 
 
