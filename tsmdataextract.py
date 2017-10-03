@@ -5,6 +5,9 @@ Docstring
 import urllib.request
 import os
 import datetime
+import pandas as pd
+import matplotlib.pyplot as plt
+import chardet
 
 
 CONSTFILENAME = 'dataset.csv'
@@ -12,10 +15,11 @@ CONSTFILENAME = 'dataset.csv'
 
 def main():
     """docstring"""
-    mustFetch = mustfetchapidata()
-    print(mustFetch)
-    if mustFetch:
-        fetchapidata()
+    plotHerbs()
+    # mustFetch = mustfetchapidata()
+    # print(mustFetch)
+    # if mustFetch:
+    #    fetchapidata()
     # fetchapidata()
     # print(mustfetchapidata())
 
@@ -31,11 +35,24 @@ def mustfetchapidata():
     """if there is a file check date if older than 1 hr fetch it again"""
     try:
         mtime = datetime.datetime.fromtimestamp(os.path.getmtime(CONSTFILENAME))
-        time_difference = mtime - datetime.datetime.now()
+        time_difference = datetime.datetime.now() - mtime
         time_difference_in_minutes = time_difference / datetime.timedelta(minutes=1)
-        return time_difference_in_minutes > 30
+        return time_difference_in_minutes > 59
     except OSError:
         return False      
+
+def plotHerbs():
+    """docstr"""
+    data = pd.read_csv(CONSTFILENAME, encoding='ISO-8859-1')
+    data2 = data[["Id", "Name", "NumAuctions", "RegionSaleRate"]]
+    #data2.set_index("Id", inplace=True)
+    print(data2.head())
+    # data.set_index("Id", inplace= True)
+    # data2.plot(x='Id',y='RegionSaleRate')
+    plt.plot(data2["RegionSaleRate"])
+    plt.show()
+    # print(data.head())
+
 
 if __name__ == "__main__":
     main()
