@@ -50,8 +50,8 @@ def plotHerbs():
     #    lineData = "First argument: {0}, second one: {1}".format(row["Name"],row["Level"]) 
     #    print(lineData)
     #print(dfHerbs.head())
-    data2 = data[["Id", "Name", "MinBuyout"]]
-    data2.set_index("Id", inplace=True)
+    data2 = data[["Name", "MinBuyout"]]
+    #data2.set_index("Id", inplace=True)
     #print(data2.head())
     # data.set_index("Id", inplace= True)
     data2.plot.bar()
