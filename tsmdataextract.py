@@ -44,13 +44,19 @@ def mustfetchapidata():
 def plotHerbs():
     """docstr"""
     data = pd.read_csv(CONSTFILENAME, encoding='ISO-8859-1')
-    data2 = data[["Id", "Name", "NumAuctions", "RegionSaleRate"]]
+    dfHerbs = data.loc[(data["Class"] == "Tradeskill") & (data["SubClass"] == "Herb")]
+
+    for index, row in dfHerbs.iterrows():
+        lineData = "First argument: {0}, second one: {1}".format(row["Name"],row["Level"]) 
+        print(lineData)
+    #print(dfHerbs.head())
+    #data2 = data[["Id", "Name", "NumAuctions", "RegionSaleRate"]]
     #data2.set_index("Id", inplace=True)
-    print(data2.head())
+    #print(data2.head())
     # data.set_index("Id", inplace= True)
     # data2.plot(x='Id',y='RegionSaleRate')
-    plt.plot(data2["RegionSaleRate"])
-    plt.show()
+    # plt.plot(data2["RegionSaleRate"])
+    # plt.show()
     # print(data.head())
 
 
