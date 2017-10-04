@@ -39,7 +39,7 @@ def mustfetchapidata():
         time_difference_in_minutes = time_difference / datetime.timedelta(minutes=1)
         return time_difference_in_minutes > 59
     except OSError:
-        return False      
+        return True      
 
 def plotHerbs():
     """docstr"""
