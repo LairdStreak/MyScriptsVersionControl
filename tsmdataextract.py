@@ -44,16 +44,20 @@ def mustfetchapidata():
 def plotHerbs():
     """docstr"""
     data = pd.read_csv(CONSTFILENAME, encoding='ISO-8859-1')
-    dfHerbs = data.loc[(data["Class"] == "Tradeskill") & (data["SubClass"] == "Herb")]
+    dfHerbs = data.loc[(data["Class"] == "Tradeskill") & (data["SubClass"] == "Herb") & (data["MinBuyout"] > 0)]
 
     #for index, row in dfHerbs.iterrows():
     #    lineData = "First argument: {0}, second one: {1}".format(row["Name"],row["Level"]) 
     #    print(lineData)
     #print(dfHerbs.head())
     data2 = data[["Name", "MinBuyout"]]
+    data2 = data2.sort_values("MinBuyout",  ascending=False).head(10)
     #data2.set_index("Id", inplace=True)
     #print(data2.head())
     # data.set_index("Id", inplace= True)
+    for index, row in data2.iterrows():
+        lineData = "First argument: {0}, second one: {1}".format(row["Name"],row["MinBuyout"]) 
+        print(lineData)
     data2.plot.bar()
     # plt.plot(data2["RegionSaleRate"])
     #plt.bar(data2)
