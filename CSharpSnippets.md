@@ -66,3 +66,70 @@
         //    Assert.Pass();
         //}
 ```
+
+##### Dynamics HermesTestSender.
+```c#
+//using System;
+//using System.IO;
+//using System.Net;
+//using System.Text;
+//using DynamicsPlugin.Models;
+//using Newtonsoft.Json;
+//
+//namespace ReportsScratchPad
+//{
+//    public class HermesTestSender
+//    {
+//        private const string UrIendPointBase = "";
+//        private const string Username = @"";
+//        private const string Password = @"";
+//
+//        // ReSharper disable once MemberCanBeMadeStatic.Global NO MORE STATIC PLEASE RESHARPER YOU GETTING US INTO TROUBLE!!!!
+//        public bool SendTestMessageClient()
+//        {
+//            var model = new HermesCrmAccountSendRecord()
+//            {
+//                externalid = Guid.NewGuid().ToString(),
+//                companyname = "Test",
+//                customer_sector = "South America - Chile Peru"
+//            };
+//            var jsonData = JsonConvert.SerializeObject(model);
+//            var partialUri = new Uri(Guid.NewGuid().ToString(), UriKind.Relative);
+//            var fullUri = new Uri(new Uri(UrIendPointBase),partialUri);
+//            var credentials = Convert.ToBase64String(Encoding.ASCII.GetBytes(Username + ":" + Password));
+//            try
+//            {
+//                using (var client = new WebClient())
+//                {
+//                    client.Headers[HttpRequestHeader.Authorization] = $"Basic {credentials}";
+//                    client.Headers[HttpRequestHeader.ContentType] = "application/json";
+//                    client.Headers[HttpRequestHeader.Accept] = "application/json";
+//                    var reply = client.UploadString(fullUri, "PUT", jsonData);
+//                    Console.WriteLine(reply);
+//                }
+//            }
+//            catch (WebException wex)
+//            {
+//                if (wex.Response == null) return false;
+//                using (var errorResponse = (HttpWebResponse)wex.Response)
+//                {
+//                    using (var reader = new StreamReader(errorResponse.GetResponseStream()))
+//                    {
+//                        var error = reader.ReadToEnd();
+//                        Console.WriteLine(error);
+//                    }
+//                }
+//                return false;
+//            }
+//            catch (Exception e)
+//            {
+//                Console.WriteLine(e);
+//                throw;
+//            }
+//            
+//
+//            return true;
+//        }
+//    }
+//}
+```
