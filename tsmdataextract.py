@@ -15,13 +15,14 @@ CONSTFILENAME = 'dataset.csv'
 
 def main():
     """docstring"""
-    plotHerbs()
+    #plotHerbs()
     #mustFetch = mustfetchapidata()
     #print(mustFetch)
     #if mustFetch:
-    #fetchapidata()
+    fetchapidata()
     # fetchapidata()
     # print(mustfetchapidata())
+    plotHerbs()
 
 
 def fetchapidata():
